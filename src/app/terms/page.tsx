@@ -3,7 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { cn } from "@/lib/utils";
+// import { cn } from "@/lib/utils";
 // import Navbar from "@/components/Navbar";
 // import Footer from "@/components/Footer";
 
