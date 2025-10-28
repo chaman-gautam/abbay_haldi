@@ -89,7 +89,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { HoveredLink, Menu, MenuItem } from "./ui/navbar-menu";
-import { Menu as MenuIcon, X } from "lucide-react"; // icon package
+// import { Menu as MenuIcon, X } from "lucide-react"; // icon package
+import { FaBars as MenuIcon, FaTimes as X } from "react-icons/fa";
 
 function Navbar({ className }: { className?: string }) {
   const [active, setActive] = useState<string | null>(null);
