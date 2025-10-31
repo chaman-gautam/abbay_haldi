@@ -23,7 +23,7 @@ export default function AboutPage() {
           <div className="flex flex-col md:flex-row md:space-x-12 items-center ">
             {/* Left Text Section */}
             <div className="max-w-4xl mx-auto space-y-6 text-gray-800 md:pl-10 order-2 md:order-1 max-w-[60%]">
-              <h3 className="font-bold">
+              <h3 className="text-lg">
                 Abby Haliti is a world-renowned Hair Color Specialist & Balayage
                 Expert, having created signature looks for countless stars such
                 as Olivia Palermo, Rita Ora, Jane Krakowski, and Sigourney
@@ -68,7 +68,7 @@ export default function AboutPage() {
             {/* Right Image Section */}
             <div className="w-full md:w-[50%] mb-8 md:mb-0 order-1 md:order-2">
               <Image
-                src="/IMG_6133.jpeg"
+                src="/IMG_6141.jpeg"
                 alt="Abby Haliti Logo"
                 width={800}
                 height={1000}

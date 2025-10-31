@@ -10,7 +10,7 @@ const AboutIntroSection = () => {
         <div className="flex justify-center items-center  mb-10 ">
           <Link href="/" aria-label="Home">
             <Image
-              src="/hero-second.jpg"
+              src="/IMG_6133.jpeg"
               alt="Abby Haliti Logo"
               width={900}
               height={1000}
