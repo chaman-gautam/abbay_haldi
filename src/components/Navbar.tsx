@@ -35,7 +35,9 @@ function Navbar({ className }: { className?: string }) {
                 <HoveredLink href="/colorstudio/colorservices">
                   Color Services
                 </HoveredLink>
-                <HoveredLink href="/guest-artist">Guest Artist</HoveredLink>
+                <HoveredLink href="/colorstudio/guest-artist">
+                  Guest Artist
+                </HoveredLink>
               </div>
             </MenuItem>
 

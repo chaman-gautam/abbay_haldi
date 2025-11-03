@@ -55,24 +55,28 @@ export default function TeamPage() {
   return (
     <>
       {/* <Navbar /> */}
-      <main className="pt-24 bg-white">
+      <main className="pt-24 bg-white ">
         {/* Hero for Team */}
-        <section className="relative w-full h-[45vh]">
-          <Image
+        {/* <section className="relative w-full"> */}
+        {/* <Image
             src="/images/team-hero.jpg"
             alt="Team at Abby Haliti Color Studio"
             fill
             className="object-cover object-center"
             priority
-          />
-          <div className="absolute inset-0 bg-black/40" />
-          <div className="absolute inset-0 flex flex-col justify-center items-center text-white text-center px-6">
-            <h1 className="text-3xl md:text-5xl font-light">Meet Our Team</h1>
-            <p className="mt-4 text-lg max-w-xl">
+          /> */}
+        {/* <div className="absolute inset-0 bg-black/40" /> */}
+        <div className=" inset-0 flex flex-col justify-center items-end text-white text-center px-6 mt-8">
+          <h1 className="text-3xl font-bold md:text-5xl tracking-wide mb-12 text-black">
+            Meet Our Team
+          </h1>
+
+          {/* <h1 className="text-3xl md:text-5xl font-light"></h1> */}
+          {/* <p className="mt-4 text-lg max-w-xl">
               A curated group of experts dedicated to your hair’s color journey.
-            </p>
-          </div>
-        </section>
+            </p> */}
+        </div>
+        {/* </section> */}
 
         {/* Team grid */}
         <section className="py-16 px-4 md:px-8 lg:px-20">
@@ -80,7 +84,7 @@ export default function TeamPage() {
             {teamMembers.map((member, idx) => (
               <motion.div
                 key={member.name}
-                className="flex flex-col items-center text-center space-y-4"
+                className="flex flex-col items-center text-center space-y-4 border-black border-2 p-5 rounded"
                 variants={cardVariants}
                 initial="hidden"
                 whileInView="visible"

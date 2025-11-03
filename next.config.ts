@@ -9,6 +9,14 @@ const nextConfig: NextConfig = {
     // ✅ Ignore type errors during builds
     ignoreBuildErrors: true,
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "source.unsplash.com",
+      },
+    ],
+  },
   /* config options here */
 };
 

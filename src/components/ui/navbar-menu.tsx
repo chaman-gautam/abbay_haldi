@@ -27,7 +27,7 @@ export const MenuItem = ({
     ABOUT: "/about",
     CONTACT: "/contact",
     PRESS: "/press",
-    "COLOR STUDIO": "/colorstudio/team",
+    "COLOR STUDIO": "/colorstudio",
   };
 
   return (
