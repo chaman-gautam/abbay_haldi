@@ -20,12 +20,32 @@ export default function ContactPage() {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    // TODO: integrate backend or API for submission
-    setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
-    alert("Your message has been sent!");
+    try {
+      const res = await fetch("/api/sendMail", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+      if (data.success) {
+        alert("✅ Message sent successfully!");
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: "",
+        });
+      } else {
+        alert("❌ Failed to send message. Please try again later.");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("⚠️ Something went wrong!");
+    }
   };
 
   return (
@@ -34,22 +54,8 @@ export default function ContactPage() {
 
       <main className="pt-24 bg-white">
         {/* ===== Hero / Banner ===== */}
-        <section className="relative w-full h-[45vh]">
-          <Image
-            src="/images/contact-hero.jpg"
-            alt="Contact Abby Haliti Studio"
-            fill
-            className="object-cover object-center"
-            priority
-          />
-          <div className="absolute inset-0 bg-black/40" />
-          <div className="absolute inset-0 flex flex-col justify-center items-center text-white text-center px-6">
-            <h1 className="text-3xl md:text-5xl font-light">Contact Us</h1>
-            <p className="mt-4 max-w-lg text-lg">
-              Visit our studio or drop us a message — we’re here to make your
-              vision happen.
-            </p>
-          </div>
+        <section className="pt-16 text-center text-black">
+          <h1 className="text-3xl md:text-4xl font-light">Meet Our Team</h1>
         </section>
 
         {/* ===== Contact Form + Address Section ===== */}

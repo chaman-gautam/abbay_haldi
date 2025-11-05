@@ -9,7 +9,7 @@ export default function ColorStudioPage() {
       {/* ====== Hero Section ====== */}
       <section className="relative w-full h-[85vh] flex items-center justify-center ">
         <Image
-          src="https://source.unsplash.com/random/1600x900?salon,interior"
+          src="/colour-studio-hero.webp"
           alt="Abby Haliti Color Studio"
           fill
           className="object-cover brightness-90"
