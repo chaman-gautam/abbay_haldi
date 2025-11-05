@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import React from "react";
-
+import Link from "next/link";
 export default function ColorStudioPage() {
   return (
     <main className="bg-white text-[#1a1a1a] font-light mt-16">
@@ -20,9 +20,12 @@ export default function ColorStudioPage() {
           <h1 className="text-5xl font-bold text-white mb-8 text-black">
             AH Color Studio
           </h1>
-          <button className="bg-[#a37f2d] text-white px-8 py-3 text-sm tracking-wide hover:bg-[#8d6f25] transition-all">
-            Book Now
-          </button>
+
+          <Link href={"https://www.phorest.com/salon/abbyhaliticolorstudio"}>
+            <button className="bg-[#a37f2d] text-white px-8 py-3 text-sm tracking-wide hover:bg-[#8d6f25] transition-all">
+              Book Now
+            </button>
+          </Link>
         </div>
       </section>
 

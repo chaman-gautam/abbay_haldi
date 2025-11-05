@@ -80,33 +80,46 @@ export default function AboutPage() {
         </section>
 
         {/* Featured in / Press logos */}
-        <section className="py-12 px-6">
-          <div className="max-w-5xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 items-center">
-            {/* Place logos; example: Vogue, NYT, InStyle, etc. */}
-            <Image
-              src="/images/logo-vogue.svg"
-              alt="Vogue"
-              width={120}
-              height={60}
-            />
-            <Image
-              src="/images/logo-nytimes.svg"
-              alt="The New York Times"
-              width={140}
-              height={60}
-            />
-            <Image
-              src="/images/logo-instyle.svg"
-              alt="InStyle"
-              width={120}
-              height={60}
-            />
-            <Image
-              src="/images/logo-allure.svg"
-              alt="Allure"
-              width={100}
-              height={60}
-            />
+        <section className="py-12 px-6 bg-white">
+          {/* Horizontal scroll wrapper */}
+          <div className="overflow-x-auto scrollbar-hide">
+            <div className="flex gap-10 items-center justify-start w-max px-4 animate-scroll-slow">
+              {/* Example: 20 logos (you can add or replace freely) */}
+              {[
+                "/1.webp",
+                "/2.webp",
+                "/3.webp",
+                "/4.webp",
+                "/5.webp",
+                "/6.webp",
+                "/7.webp",
+                "/8.webp",
+                "/9.webp",
+                "/10.webp",
+                "/11.webp",
+                "/12.webp",
+                "/13.webp",
+                "/14.webp",
+                "/15.webp",
+                "/16.webp",
+                "/17.webp",
+                "/18.webp",
+                "/19.webp",
+                "/20.webp",
+              ].map((src, i) => (
+                <div
+                  key={i}
+                  className="flex-shrink-0 w-[250px] h-[200px] relative text-yellow transition-all duration-300"
+                >
+                  <Image
+                    src={src}
+                    alt={`logo-${i}`}
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 

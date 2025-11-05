@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-
+import Link from "next/link";
 // ==== Type Definition ====
 interface TeamMember {
   name: string;
@@ -178,9 +178,11 @@ export default function TeamPage() {
           Book a personalized session with our expert team and experience
           elevated hair artistry.
         </p>
-        <button className="bg-[#a37f2d] text-white px-8 py-2 text-sm tracking-wide hover:bg-[#8d6f25] transition-all">
-          CONTACT US
-        </button>
+        <Link href="/contact">
+          <button className="bg-[#a37f2d] text-white px-8 py-2 text-sm tracking-wide hover:bg-[#8d6f25] transition-all">
+            CONTACT US
+          </button>
+        </Link>
       </section>
     </main>
   );

@@ -3,7 +3,7 @@
 import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
-
+import Link from "next/link";
 const Acordion = [
   {
     head: "Consultations",
@@ -39,7 +39,7 @@ export default function ColorServicesPage() {
         <div className="grid md:grid-cols-2 gap-12 items-start">
           <div className="relative w-full h-[420px]">
             <Image
-              src="https://source.unsplash.com/random/600x600?hairstylist"
+              src="/1739323788338.webp"
               alt="Abby Haliti Color Studio"
               fill
               className="object-cover rounded-md"
@@ -166,7 +166,7 @@ export default function ColorServicesPage() {
         </section>
         <div className="relative w-full ">
           <Image
-            src="https://source.unsplash.com/random/600x600?hairstylist"
+            src="/unsplash-image-VFZF_pzTVBA.webp"
             alt="Abby Haliti Color Studio"
             fill
             className="object-cover rounded-md"
@@ -183,9 +183,11 @@ export default function ColorServicesPage() {
           Book a personalized session with our expert team and experience
           elevated hair artistry.
         </p>
-        <button className="px-6 py-3 bg-transparent border border-[#a37f2d] text-[#a37f2d] hover:bg-[#a37f2d] hover:text-white transition-all duration-300">
-          CONTACT US
-        </button>
+        <Link href="/contact">
+          <button className="px-6 py-3 bg-transparent border border-[#a37f2d] text-[#a37f2d] hover:bg-[#a37f2d] hover:text-white transition-all duration-300">
+            CONTACT US
+          </button>
+        </Link>
       </section>
 
       {/* ====== Footer Section ====== */}

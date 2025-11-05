@@ -2,21 +2,28 @@
 
 import Image from "next/image";
 import React from "react";
-
+import Link from "next/link";
 export default function GuestArtistPage() {
   return (
-    <main className="bg-white text-[#1a1a1a] font-light mt-8">
+    <main className="bg-white text-[#1a1a1a] font-light ">
       {/* ====== Page Header ====== */}
-      <section className="max-w-5xl mx-auto px-6 md:px-12 py-20 text-center">
-        <h1 className="text-4xl font-bold tracking-wide mb-12">Guest Artist</h1>
-
-        <div className=" w-full max-w-3xl mx-auto h-[480px] mb-10 text-black">
-          <Image
-            src="https://source.unsplash.com/random/1000x800?hairstylist,studio"
-            alt="Guest Artist"
-            fill
-            className="object-cover rounded-md"
-          />
+      <section className="max-w-5xl pt-8  mx-auto px-6 md:px-12  text-center pb-12">
+        <h1 className="text-4xl mt-24 font-bold tracking-wide mb-12">
+          Guest Artist
+        </h1>
+        <div className="flex justify-center items-center mb-10 overflow-hidden h-[600px]">
+          {" "}
+          {/* custom height */}
+          <Link href="#" aria-label="guest-artist">
+            <Image
+              src="/dirhan.webp"
+              alt="dirhan image"
+              height={500}
+              width={750}
+              priority
+              className="object-cover object-top w-full h-full"
+            />
+          </Link>
         </div>
 
         <h2 className="text-2xl font-bold mb-2">Dhiran Mistry</h2>
@@ -51,9 +58,11 @@ export default function GuestArtistPage() {
           Book a personalized session with our expert team and experience
           elevated hair artistry.
         </p>
-        <button className="px-6 py-3 border border-[#a37f2d] text-[#a37f2d] hover:bg-[#a37f2d] hover:text-white transition-all duration-300">
-          CONTACT US
-        </button>
+        <Link href="/contact" aria-label="guest-artist">
+          <button className="px-6 py-3 border border-[#a37f2d] text-[#a37f2d] hover:bg-[#a37f2d] hover:text-white transition-all duration-300">
+            CONTACT US
+          </button>
+        </Link>
       </section>
 
       {/* ====== Footer Section ====== */}

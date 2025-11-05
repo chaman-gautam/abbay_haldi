@@ -42,3 +42,28 @@ h3,
 h4 {
   font-family: var(--font-dream);
 }
+/* Hide scrollbar */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Optional auto-scrolling animation */
+@keyframes scroll-slow {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-scroll-slow {
+  animation: scroll-slow 40s linear infinite;
+}
