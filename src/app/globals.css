@@ -21,6 +21,7 @@
     --foreground: #ededed;
     --font-glacial: "Glacial Indifference", sans-serif;
     --font-dream: "Dream Avenue", serif;
+    --font-playfair: "Playfair Display", sans-serif;
   }
 }
 
@@ -37,7 +38,10 @@ span {
   font-family: var(--font-glacial);
 }
 h1,
-h2,
+h2 {
+  font-family: var(--font-playfair);
+}
+
 h3,
 h4 {
   font-family: var(--font-dream);

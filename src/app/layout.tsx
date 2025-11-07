@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import localFont from "next/font/local";
+import { Playfair_Display } from "next/font/google";
 
 // Body Font - Glacial Indifference
 const glacial = localFont({
@@ -36,6 +37,12 @@ const dreamAvenue = localFont({
   display: "swap",
 });
 
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-playfair",
+});
+
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
 //   subsets: ["latin"],
@@ -57,7 +64,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${glacial.variable} ${dreamAvenue.variable}`}>
+    <html
+      lang="en"
+      className={`${glacial.variable} ${dreamAvenue.variable} ${playfair.variable}`}
+    >
       <body className={`${glacial.variable} ${dreamAvenue.variable}`}>
         <Navbar />
         {children}

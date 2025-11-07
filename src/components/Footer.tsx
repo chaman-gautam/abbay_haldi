@@ -153,17 +153,7 @@ function Footer({ className }: { className?: string }) {
       <div className="text-xs text-gray-500 border-t border-gray-300 mt-4">
         <div className="max-w-6xl mx-auto px-6 py-4 flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-2">
           <span>© Abby Haliti {year}. All rights reserved.</span>
-          <span className="text-gray-400">
-            Made with ❤️ by Team{" "}
-            <Link
-              href="https://diwconsultix.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-black transition-colors"
-            >
-              DiwConsultix
-            </Link>
-          </span>
+          <span className="text-gray-400">Made with ❤️</span>
         </div>
       </div>
     </footer>
