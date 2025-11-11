@@ -55,10 +55,10 @@ export default function AboutPage() {
                 distributor, and has led masterclasses across Latin America and
                 the Middle East.
               </p>
-              <div>
+              <div className="w-full flex justify-center items-center ">
                 <Link
                   href="/contact"
-                  className="inline-block px-8 py-3 bg-[#b38b4d] text-white uppercase text-sm tracking-wide hover:bg-[#a07a3f] transition-colors"
+                  className="inline-block px-16 py-3 bg-[#b38b4d] text-white uppercase text-sm tracking-wide hover:bg-[#a07a3f] transition-colors "
                 >
                   Book an Appointment
                 </Link>

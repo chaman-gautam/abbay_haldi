@@ -15,6 +15,12 @@ interface TeamMember {
 // ==== Static Team Data ====
 const teamMembers: TeamMember[] = [
   {
+    name: " Abby Haliti ",
+    role: "Founder / Color Director",
+    imageSrc: "/IMG_61412.webp",
+    bio: " Malena is a senior colorist with 25 years of experience, originally from Mexico City. Her passion has always been in the color department, where she has trained to master the art of hair color. Melena has extensive experience working in some of the top salons in NYC, where she has developed her expertise in the color department. Additionally, she has provided professional hotline services for Clairol, further honing her skills and knowledge in the field.",
+  },
+  {
     name: "Malena",
     role: "Malena | Hair Colorist",
     imageSrc: "/NIK_8284.webp",
@@ -128,6 +134,7 @@ export default function TeamPage() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={handleClose}
+            // onMouseLeave={handleClose}
           >
             <motion.div
               onClick={(e) => e.stopPropagation()}
@@ -140,7 +147,7 @@ export default function TeamPage() {
               {/* Close Button */}
               <button
                 onClick={handleClose}
-                className="absolute top-3 right-4 text-gray-500 hover:text-gray-700 text-2xl"
+                className="absolute top-3 right-1 text-gray-500 hover:text-gray-700 text-5xl "
               >
                 ×
               </button>

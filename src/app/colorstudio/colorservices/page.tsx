@@ -39,9 +39,9 @@ export default function ColorServicesPage() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-10 md:gap-12 items-start">
-          <div className="relative w-full h-[400px] md:h-[450px] ">
+          <div className="relative w-full h-[550px] md:h-[630px] ">
             <Image
-              src="/1739323788338.webp"
+              src="/IMG-0631.jpg"
               alt="Abby Haliti Color Studio"
               fill
               className="object-cover rounded-md"
