@@ -18,7 +18,7 @@ const teamMembers: TeamMember[] = [
     name: " Abby Haliti ",
     role: "Founder / Color Director",
     imageSrc: "/IMG_61412.webp",
-    bio: " Malena is a senior colorist with 25 years of experience, originally from Mexico City. Her passion has always been in the color department, where she has trained to master the art of hair color. Melena has extensive experience working in some of the top salons in NYC, where she has developed her expertise in the color department. Additionally, she has provided professional hotline services for Clairol, further honing her skills and knowledge in the field.",
+    bio: " Abby Haliti is a prominent hair colorist in New York City renowned for her exceptional skills and reputation in the beauty industry. She has been recognized by leading publications such as Vogue, The New York Times, and InStyle, as well as international press. Known for her warm personality and mindful approach to hair coloring, Abby was named the best Balayage Expert by Allure magazine’s Directory of Beauty. Born in South-Eastern Europe and possessing a diverse education, Abby rapidly gained recognition for her unique take on the European hair coloring technique of Balayage. Her expertise in this area has made her a highly sought-after colorist in New York City and globally. She is also a leader in the color industry, serving as a color director and sharing her knowledge by mentoring freelancers globally.",
   },
   {
     name: "Malena",
@@ -41,7 +41,7 @@ const teamMembers: TeamMember[] = [
   {
     name: "Roy",
     role: "Roy Teeluck | Hairstylist",
-    imageSrc: "/file.svg",
+    imageSrc: "/roy.webp",
     bio: "Celebrity hairstylist Roy Teeluck is renowned for his expertise in Hair Health. His signature style is characterized by its sexy, organic, and sophisticated elements. Throughout his career, he continuously simplifies and updates his techniques, drawing inspiration from his vast knowledge. As a mentor, he has guided and inspired numerous hairstylists in the beauty industry. Roy's exceptional talent has been acknowledged on various fashion platforms, and he has had the privilege of working with esteemed celebrities including Jane Fonda, Carrie Fisher, and Sigourney Weaver.",
   },
 ];
