@@ -60,9 +60,9 @@ export default function TeamPage() {
       </section>
 
       {/* ===== Intro Section ===== */}
-      <section className="max-w-6xl mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-10 items-start">
-        {/* Text */}
-        <div className="space-y-4 text-[15px] leading-relaxed text-gray-800">
+      {/* <section className="max-w-6xl mx-auto px-6 md:px-12  items-start"> */}
+      {/* Text */}
+      {/* <div className="space-y-4 text-[15px] leading-relaxed text-gray-800">
           <p>
             Abby Haliti is a prominent hair colorist in New York City renowned
             for her exceptional skills and reputation in the beauty industry.
@@ -83,10 +83,10 @@ export default function TeamPage() {
             color industry, serving as a color director and sharing her
             knowledge by mentoring freelancers globally.
           </p>
-        </div>
+        </div> */}
 
-        {/* Abby Image */}
-        <div className="flex flex-col items-center text-center">
+      {/* Abby Image */}
+      {/* <div className="flex flex-col items-center text-center">
           <div className="relative w-[350px] h-[420px] overflow-hidden rounded-md">
             <Image
               src="/IMG_61412.webp"
@@ -98,8 +98,8 @@ export default function TeamPage() {
           <p className="text-sm mt-2 text-gray-700 italic">
             Abby Haliti | Founder / Color Director
           </p>
-        </div>
-      </section>
+        </div> */}
+      {/* </section> */}
 
       {/* ===== Team Members Grid ===== */}
       <section className="max-w-6xl mx-auto px-6 md:px-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 justify-items-center pb-24 mt-10">

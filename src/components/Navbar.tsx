@@ -10,6 +10,14 @@ import { FaBars as MenuIcon, FaTimes as X } from "react-icons/fa";
 function Navbar({ className }: { className?: string }) {
   const [active, setActive] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [searchValue, setSearchValue] = useState("");
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!searchValue.trim()) return;
+
+    window.location.href = `/search?query=${encodeURIComponent(searchValue)}`;
+  };
 
   return (
     <nav
@@ -62,12 +70,25 @@ function Navbar({ className }: { className?: string }) {
         {/* ===== Right Section ===== */}
         <div className="hidden md:flex items-center space-x-6 justify-end">
           <div className="relative">
-            <input
-              type="text"
-              placeholder="Search"
-              className="border-b border-gray-400 focus:outline-none text-sm px-2 py-1 w-32 placeholder-gray-500 font-[var(--font-dream)]"
-            />
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                if (!searchValue.trim()) return;
+                window.location.href = `/search?q=${encodeURIComponent(
+                  searchValue
+                )}`;
+              }}
+            >
+              <input
+                type="text"
+                placeholder="Search"
+                value={searchValue}
+                onChange={(e) => setSearchValue(e.target.value)}
+                className="border-b border-gray-400 focus:outline-none text-sm px-2 py-1 w-32 placeholder-gray-500 font-[var(--font-dream)]"
+              />
+            </form>
           </div>
+
           <Link
             href="https://www.phorest.com/salon/abbyhaliticolorstudio"
             className="bg-[#a37f2d] text-white text-sm font-medium px-5 py-2 rounded-sm hover:bg-[#a07a3f] transition-colors font-[var(--font-dream)]"

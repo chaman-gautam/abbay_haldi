@@ -8,297 +8,316 @@ import { motion } from "framer-motion";
 const pressData = [
   {
     img: "/MargotRobbie.webp",
-    title: "Hailey Bieber debuts her new hair color by Abby Haliti",
+    title: "Shadow Roots: How to Get Lived-In, Low-Maintenance Hair Color",
     source: "Allure",
-    link: "#",
+    link: "https://www.instyle.com/highlights-for-gray-hair-5410274",
   },
   {
     img: "/download.webp",
-    title: "Halle Bailey’s soft pink look by Abby Haliti",
+    title:
+      "Celebrity Hair Colorist Abby Haliti On Why Balayage Is Better Than Ever",
     source: "Vogue",
-    link: "#",
+    link: "https://www.voguearabia.com/",
   },
   {
     img: "/IMG_6692.webp",
-    title: "Subtle lowlight transformation featured in Glamour",
+    title: "Hailey Bieber in the pink",
     source: "Glamour",
     link: "#",
   },
   {
     img: "/French.webp",
-    title: "The modern approach to blonde perfection",
+    title:
+      "A French Colorist Says *This* Is Every Euro Girl's Secret to Flawless Hair Color",
     source: "Harper’s Bazaar",
-    link: "#",
+    link: "https://www.whowhatwear.com/european-method-hair-color",
   },
   {
     img: "/PearlBlonde.webp",
-    title: "Effortless color blends dominating this season",
+    title: "Pearl Blonde Is The Most Luminescent Hair Color Trend",
     source: "InStyle",
-    link: "#",
+    link: "https://www.bustle.com/beauty/pearl-blonde-hair-color",
   },
   {
     img: "/HairPerfume.webp",
-    title: "Transformations using the European Method of Balayage",
+    title: "Hair Perfumes are an Escape Latch to Luxury",
     source: "Elle",
-    link: "#",
+    link: "https://coveteur.com/best-hair-perfumes-fragrances",
   },
   {
     img: "/AllureCreatorsNetwork.webp",
-    title: "Inside the Abby Haliti Color Studio experience",
+    title: "Allure Magazine Introducing…the Allure Creators Network",
     source: "Byrdie",
-    link: "#",
+    link: "https://www.allure.com/story/allure-creators-network",
   },
   {
     img: "/5SurprisingTipsForDisguisingGrayHairsFromHighlightsToSpotTreatments.webp",
-    title: "Why simplicity in color can redefine beauty",
+    title:
+      "5 Surprising Tips For Disguising Gray Hairs, From Highlights To Spot Treatments",
     source: "NewBeauty",
-    link: "#",
+    link: "https://www.mindbodygreen.com/lifestyle",
   },
   {
     img: "/TheHaircareHeroesOliviaReliesOn.webp",
-    title: "Luminous blondes that protect hair integrity",
+    title: "The Haircare Heroes Olivia Relies On",
     source: "Refinery29",
-    link: "#",
+    link: "https://shopmy.us/oliviapalermo/blogs/the-edit/olivia-palermo-haircare-routine-beauty-products",
   },
   {
     img: "/DryShampooCanCauseDullLifelessHairAccordingToThisExpert.webp",
-    title: "Natural balayage tones that never fade",
+    title:
+      "Dry Shampoo Can Cause Dull, Lifeless Hair, According To This Expert",
     source: "Cosmopolitan",
-    link: "#",
+    link: "https://www.mindbodygreen.com/articles/dry-shampoo-can-cause-dull-hair",
   },
   {
     img: "/hair.webp",
-    title: "/The secret to modern hair color artistry",
+    title: "15 Copper Hair Color Ideas You’ll Want to Copy ASAP",
     source: "Marie Claire",
-    link: "#",
+    link: "https://www.glamour.com/gallery/copper-hair-color",
   },
   {
     img: "/1-launchmetrics-hobeika-hc-bks-f23-036-64e3d062bf9ed (1).webp",
-    title: "The most elegant brunette tones of 2024",
+    title: "The 13 Best Hard Water Shampoos for Healthy, Shiny Hair",
     source: "Grazia",
-    link: "#",
+    link: "https://www.elle.com/beauty/hair/g44839895/best-hard-water-shampoos/",
   },
   {
     img: "/aby.webp",
-    title: "Celebrity-approved balayage techniques",
+    title:
+      "We’re Quitting Lemon-Juice Highlights, But It’s Not For The Reason You Think",
     source: "People",
-    link: "#",
+    link: "https://www.refinery29.com/en-us/hair-lightener-spray-risk",
   },
   {
     img: "/nylon.webp",
-    title: "Runway trends inspired by Abby’s signature method",
+    title: "Summer’s Biggest Hair Trends Channel Dreamy Escapism",
     source: "W Magazine",
-    link: "#",
+    link: "https://www.nylon.com/beauty/summer-2023-hair-trends",
   },
   {
     img: "/blonde.webp",
-    title: "Minimalist hair color revolution",
+    title: "The Best Blonde Hair Colors to Try This Second",
     source: "Elle Decor",
-    link: "#",
+    link: "https://www.glamour.com/gallery/blonde-hair-colors",
   },
   {
     img: "/BiggestHairColor.webp",
-    title: "Color artistry meets sustainability",
+    title: "60 Best Fall Hair Colors and Trends to Try for Autumn 2023",
     source: "The Cut",
-    link: "#",
+    link: "https://www.cosmopolitan.com/style-beauty/beauty/g62061746/fall-hair-colors-2024/",
   },
   {
     img: "/AGuideToHair.webp",
-    title: "Inside Abby’s mentorship for new stylists",
+    title:
+      "A Guide To Hair Contouring: How To Strategically Highlight Different Face Shapes",
     source: "Forbes",
-    link: "#",
+    link: "https://www.mindbodygreen.com/articles/guide-to-hair-contouring-expert-tips-before-and-after-results",
   },
   {
     img: "/chlorine-shampoo-649f1b704c5d6.webp",
-    title: "From Europe to NYC: redefining luxury haircare",
+    title:
+      "The 10 Best Chlorine Shampoos to Revive Post-Swim Strands, According to Hairstylists",
     source: "New York Times",
-    link: "#",
+    link: "https://www.prevention.com/beauty/hair/g44388640/best-shampoo-for-chlorine-removal/",
   },
   {
     img: "/blackhair.webp",
-    title: "The rise of beige blonde tones for spring",
+    title: "20 Black Hair Color Ideas to Embrace Your Dark Side",
     source: "Vogue",
-    link: "#",
+    link: "https://www.glamour.com/gallery/black-hair-colors",
   },
   {
     img: "/fine-hair-tips-1200x900.webp",
-    title: "How Abby Haliti reimagines hair wellness",
+    title:
+      "Everything you need to know about fine hair, according to this expert",
     source: "Allure",
-    link: "#",
+    link: "https://www.cosmopolitanme.com/beauty/fine-hair-tips-from-a-pro",
   },
   {
     img: "/press39.webp",
-    title: "Soft dimension: The art of invisible highlights",
+    title:
+      "Highlights Are Back A Few Stealth Streaks Can Change Your Look (And Your Life)",
     source: "Glamour",
-    link: "#",
+    link: "https://www.vogue.com/article/blonde-highlights-hair-color-balayage",
   },
   {
     img: "/40.webp",
-    title: "Quiet luxury color tones redefine beauty standards",
+    title: "Best Salons for Hair Color",
     source: "Harper’s Bazaar",
-    link: "#",
+    link: "https://www.allure.com/story/color",
   },
   {
     img: "/41.webp",
-    title: "Glossing techniques that transform natural tones",
+    title: "Why Olivia Palermo Has Exactly 6 Sun-kissed Highlights",
     source: "Refinery29",
-    link: "#",
+    link: "https://www.vogue.com/article/olivia-palermo-highlighted-hair",
   },
   {
     img: "/42.webp",
-    title: "Behind the color philosophy of Abby Haliti",
+    title: "Hair Contouring Is Officially a Thing",
     source: "Vogue",
     link: "#",
   },
   {
     img: "/43.webp",
-    title: "Subtle transformations for effortless elegance",
+    title: "Her Crowning Glory in a Box",
     source: "Marie Claire",
-    link: "#",
+    link: "https://www.nytimes.com/2013/02/28/fashion/for-more-everyday-women-their-crowning-glory-comes-in-a-box-skin-deep.html",
   },
   {
     img: "/44.webp",
-    title: "The philosophy behind effortless color",
+    title:
+      "Sombre hair is like ombré's sexy sister, and you're going to LOVE it",
     source: "Grazia",
-    link: "#",
+    link: "https://her.ie/beauty/sombre-hair-new-ombre-420534",
   },
   {
     img: "/45.webp",
-    title: "Why healthy hair is the new luxury",
+    title: "Olivia Palermo's New Haircut Is Unsurprisingly On-Trend",
     source: "Forbes",
-    link: "#",
+    link: "https://www.refinery29.com/en-us/2017/06/158256/olivia-palermo-bob-hair",
   },
   {
     img: "/46.webp",
-    title: "The timeless appeal of sunlit blonde shades",
+    title: "Why Your Hair Is Being the Worst This Time of Year",
     source: "Elle",
     link: "#",
   },
   {
     img: "/47.webp",
-    title: "Mastering subtle transformations in modern beauty",
+    title:
+      "Olivia Palermo Gets Blond Highlights Before Her Wedding—See Her Lighter Hair Color!",
     source: "W Magazine",
-    link: "#",
+    link: "https://www.eonline.com/news/553164/olivia-palermo-gets-blond-highlights-before-her-wedding-see-her-lighter-hair-color",
   },
   {
     img: "/48.webp",
-    title: "The art of invisible contrast highlights",
+    title: "Updating the Gold Standard to Platinum",
     source: "Cosmopolitan",
-    link: "#",
+    link: "https://www.nytimes.com/2014/06/26/fashion/white-blonde-hairstyle.html",
   },
   {
     img: "/49.webp",
-    title: "Why restraint defines luxury hair color today",
+    title:
+      "These Will Be the Most Popular Hair Colors of 2018, According to Top Stylists",
     source: "InStyle",
-    link: "#",
+    link: "https://www.thefashionspot.com/beauty/784263-popular-hair-color-trends-2018/",
   },
   {
     img: "/50.webp",
-    title: "Defining a new era of timeless blondes",
+    title: "19 NYC Colorists Who Will Give You The Best Hair Of Your Life",
     source: "Allure",
-    link: "#",
+    link: "https://www.refinery29.com/en-us/best-hair-colorists-nyc",
   },
   {
     img: "/51.webp",
-    title: "Editorial excellence through natural tones",
+    title:
+      "So simpel und so elegant: Warum wir jetzt den Olivia Palermo Cut wollen",
     source: "Vogue",
-    link: "#",
+    link: "https://www.instyle.de/beauty/olivia-palermo-cut",
   },
   {
     img: "/52.webp",
-    title: "Celebrity favorites: effortless dimensional color",
+    title: "Olivia, Alexa, Chiara, Kristina... ¡bellezas con sello propio!",
     source: "People",
-    link: "#",
+    link: "https://www.hola.com/belleza/2016061486273/it-girls-senas-identidad/",
   },
   {
     img: "/53.webp",
-    title: "Soft blending for everyday luxury",
+    title:
+      "This is why Olivia Palermo's hair always looks so glossy and healthy",
     source: "Byrdie",
-    link: "#",
+    link: "https://www.glamourmagazine.co.uk/gallery/sombre-hair",
   },
   {
     img: "/54.webp",
-    title: "Inside the evolution of the European Balayage technique",
+    title: "5 Ways To Repair Your Hair From Summer Elements",
     source: "Elle",
-    link: "#",
+    link: "https://shopmy.us/oliviapalermo/blogs/the-edit/summer-hair-care-tips",
   },
   {
     img: "/55.webp",
-    title: "Redefining precision in modern color work",
+    title: "Aishti",
     source: "Vogue Italia",
-    link: "#",
+    link: "https://issuu.com/aishti/docs/amag94",
   },
   {
     img: "/56.webp",
-    title: "Classic tones with contemporary technique",
+    title: "Natural-Looking Highlights?",
     source: "Glamour UK",
     link: "#",
   },
   {
     img: "/58.webp",
-    title: "The global rise of refined hair artistry",
+    title:
+      "HOW TO LIGHTEN HAIR WITHOUT DAMAGE (AND WHAT TO DO IF IT'S TOO LATE)",
     source: "Tatler",
-    link: "#",
+    link: "https://www.foxnews.com/lifestyle/how-to-lighten-hair-without-damage-and-what-to-do-if-its-too-late",
   },
   {
     img: "/59.webp",
-    title: "Why natural palettes lead 2025 trends",
+    title: "OLIVIA PALERMO MAY HAVE THE WORLD'S MOST PRECISE HAIR COLOUR",
     source: "Vogue",
-    link: "#",
+    link: "https://www.cosmopolitan.com/uk/beauty-hair/celebrity-hair-makeup/a26415/olivia-palermo-hair-six-highlights/",
   },
   {
     img: "/60.webp",
-    title: "Hair integrity first: The Haliti method explained",
+    title: "OLIVIA PALERMO SHARES HER SECRET TO GORGEOUS HAIR",
     source: "NewBeauty",
-    link: "#",
+    link: "https://www.hellomagazine.com/healthandbeauty/hair/2016042531097/olivia-palermo-shares-her-secret-for-healthy-looking-hair/",
   },
   {
     img: "/61.webp",
-    title: "Subtle gloss, bold confidence — Abby’s secret formula",
+    title: "OLIVIA PALERMO’S BEAUTY SECRETS",
     source: "Marie Claire",
-    link: "#",
+    link: "https://www.marieclaire.co.uk/beauty/olivia-palermo-beauty-secrets-10412",
   },
   {
     img: "/62.webp",
-    title: "Parisian minimalism meets NYC elegance",
+    title: "OLIVIA PALERMO’S DAILY SKIN, HAIR AND MAKEUP HACKS",
     source: "Harper’s Bazaar",
-    link: "#",
+    link: "https://www.net-a-porter.com/en-us/porter/article-25ad120ac3890729/beauty/beauty-memo/olivia-palermo-beauty",
   },
   {
     img: "/63.webp",
-    title: "Runway-approved understated transformations",
+    title:
+      "ДОСТИГЛИ ПРОСВЕТЛЕНИЯ! КАК ЗАБОТЯТСЯ О ЦВЕТЕ ВОЛОС ЗВЕЗДЫ-БЛОНДИНКИ",
     source: "Elle UK",
-    link: "#",
+    link: "https://www.wmj.ru/krasota/pricheski/dostigli-prosvetleniya-kak-zabotyatsya-o-tsvete-volos-zvezdy-blondinki.htm",
   },
   {
     img: "/64.webp",
-    title: "Shaping the next era of luxury color education",
+    title: "POUR REPRENDRE DES COULEURS",
     source: "Forbes",
-    link: "#",
+    link: "https://www.lorientlejour.com/article/1098019/pour-reprendre-des-couleurs.html",
   },
   {
     img: "/65.webp",
-    title: "Behind the chair with Abby Haliti",
+    title:
+      "THE WOMAN’S INSTANT COLOR-CHANGING HAIR TRICK HAS THE INTERNET OBSESSED",
     source: "Vogue",
-    link: "#",
+    link: "https://www.newbeauty.com/how-to-get-two-toned-split-hair-color/",
   },
   {
     img: "/66.webp",
-    title: "Masterclass in soft, dimensional blondes",
+    title:
+      "THESE WILL BE THE MOST POPULAR HAIR COLORS OF 2018, ACCORDING TO TOP STYLISTS",
     source: "Allure",
-    link: "#",
+    link: "https://www.thefashionspot.com/beauty/784263-popular-hair-color-trends-2018/#/slide/1",
   },
   {
     img: "/67.webp",
-    title: "From consultation to confidence: the Abby approach",
+    title:
+      "UNSER LIEBSTER TREND-CUT DES SOMMERS BEKOMMT JETZT EIN HERBST-UPDATE",
     source: "InStyle",
-    link: "#",
+    link: "https://www.instyle.de/beauty/olivia-palermo-trend-frisur",
   },
   {
     img: "/68.webp",
     title: "Signature color transformations in 2025",
     source: "Cosmopolitan",
-    link: "#",
+    link: "https://www.instyle.de/beauty/olivia-palermo-trend-frisur",
   },
 ];
 
@@ -320,7 +339,7 @@ export default function PressPage() {
       {/* ===== Press Grid Section ===== */}
       <section className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 py-20">
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-12"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-x-8 gap-y-12"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -333,34 +352,41 @@ export default function PressPage() {
               className="flex flex-col group cursor-pointer border-2  "
               variants={fadeUp}
             >
-              {/* Image */}
-              <div className="relative w-full h-[380px] overflow-hidden rounded-none">
-                <Image
-                  src={item.img}
-                  alt={item.title}
-                  fill
-                  className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 25vw"
-                />
-              </div>
+              <Link
+                href={item.link}
+                // target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#a37f2d] hover:text-[#b6923f] text-xs mt-2 inline-block transition-colors duration-300"
+              >
+                {/* Image */}
+                <div className="relative w-full h-[500px] overflow-hidden rounded-none -mt-3">
+                  <Image
+                    src={item.img}
+                    alt={item.title}
+                    fill
+                    className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 25vw"
+                  />
+                </div>
 
-              {/* Details */}
-              <div className="pt-5 px-2 text-center">
-                <h3 className="text-base font-light leading-snug text-[#1a1a1a] group-hover:text-[#a37f2d] transition-colors duration-300">
-                  {item.title}
-                </h3>
-                <p className="text-xs text-gray-500 mt-1 uppercase tracking-wide">
-                  {item.source}
-                </p>
-                <Link
-                  href={item.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#a37f2d] hover:text-[#b6923f] text-xs mt-2 inline-block transition-colors duration-300"
-                >
-                  Read more →
-                </Link>
-              </div>
+                {/* Details */}
+                <div className="pt-5 px-2 text-center">
+                  <h3 className="text-base font-light leading-snug text-[#1a1a1a] group-hover:text-[#a37f2d] transition-colors duration-300">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs text-gray-500 mt-1 uppercase tracking-wide">
+                    {item.source}
+                  </p>
+                  <Link
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#a37f2d] hover:text-[#b6923f] text-xs mt-2 inline-block transition-colors duration-300"
+                  >
+                    Read more →
+                  </Link>
+                </div>
+              </Link>
             </motion.div>
           ))}
         </motion.div>
