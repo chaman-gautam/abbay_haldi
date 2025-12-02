@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 import { HoveredLink, Menu, MenuItem } from "./ui/navbar-menu";
 // import { Menu as MenuIcon, X } from "lucide-react"; // icon package
 import { FaBars as MenuIcon, FaTimes as X } from "react-icons/fa";
-
+import "./Navbar.css";
 function Navbar({ className }: { className?: string }) {
   const [active, setActive] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -27,9 +27,9 @@ function Navbar({ className }: { className?: string }) {
       )}
     >
       {/* Wrapper */}
-      <div className="grid grid-cols-3 items-center justify-between px-6 md:px-16 py-2 font-[var(--font-dream)]">
+      <div className="grid grid-cols-2 items-center justify-between px-6 md:px-16 py-2 font-[var(--font-dream)] min-h-[78px]">
         {/* ===== Left Menu (Desktop) ===== */}
-        <div className="hidden md:flex items-center space-x-8  tracking-wide font-[var(--font-dream)]">
+        <div className="hidden lg:flex items-center space-x-8  tracking-wide font-[var(--font-dream)]">
           <Menu setActive={setActive}>
             <MenuItem setActive={setActive} active={active} item="ABOUT">
               <div className="flex flex-col space-y-4 text-sm">
@@ -55,7 +55,7 @@ function Navbar({ className }: { className?: string }) {
         </div>
 
         {/* ===== Center Logo ===== */}
-        <div className="flex justify-center items-center">
+        <div className="md:absolute md:left-1/2  md:-translate-x-26">
           <Link href="/" aria-label="Home">
             <Image
               src="/logo-wo-ny-nj-2-removebg-preview.webp"
@@ -68,7 +68,7 @@ function Navbar({ className }: { className?: string }) {
         </div>
 
         {/* ===== Right Section ===== */}
-        <div className="hidden md:flex items-center space-x-6 justify-end">
+        <div className="hidden lg:flex items-center space-x-6 justify-end">
           <div className="relative">
             <form
               onSubmit={(e) => {
@@ -99,7 +99,7 @@ function Navbar({ className }: { className?: string }) {
 
         {/* ===== Mobile Menu Toggle ===== */}
         <button
-          className="md:hidden p-2"
+          className="lg:hidden p-2 absolute right-2 minwidth"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
@@ -109,7 +109,7 @@ function Navbar({ className }: { className?: string }) {
 
       {/* ===== Mobile Menu Dropdown ===== */}
       {mobileOpen && (
-        <div className="md:hidden bg-white shadow-md border-t border-gray-100 font-[var(--font-dream)]">
+        <div className="lg:hidden bg-white shadow-md border-t border-gray-100 font-[var(--font-dream)]">
           <div className="flex flex-col px-6 py-4 space-y-4 text-sm">
             <Link href="/about/shadow" onClick={() => setMobileOpen(false)}>
               SHADOW DAY

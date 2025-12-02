@@ -6,9 +6,9 @@ import Link from "next/link";
 
 const Accordion = [
   {
-    head: "Consultations",
+    head: " Consultation Policy ",
     description:
-      "During the consultation, you'll have the chance to assess your hair's current condition and express your vision for your ideal look. This session serves as the platform for you and your artist to comprehensively discuss every aspect of your hair journey. When you book a consultation with Abby Haliti, the consultation fee will be credited towards your appointment if you book a service within 7 days of your initial visit. Consultations are non-refundable.",
+      "Your consultation is the first step in crafting your ideal look. During this session, you’ll discuss your hair’s current condition, share your goals, and collaborate with your artist to map out the best path forward for your hair journey.When you book a consultation with Abby Haliti, the consultation fee will be credited toward your service of you schedule an appointment within 7 days of your consultation. Please note: consultations with Abby are non-refundable.We also offer complimentary consultations with our senior colorist.To help us understand your vision, we highly recommend bringing visual references or inspiration photos.",
   },
   {
     head: "Cancellations",
@@ -33,7 +33,7 @@ export default function ColorServicesPage() {
       {/* ====== Hero Section ====== */}
       <section className="max-w-6xl mx-auto px-6 md:px-12 py-16 md:py-20">
         <div className="text-center mb-12">
-          <h1 className="text-3xl md:text-4xl font-semibold tracking-wide text-[#1a1a1a]">
+          <h1 className="text-3xl md:text-3xl font-semibold tracking-wide text-[#1a1a1a]">
             Color Services
           </h1>
         </div>
@@ -53,7 +53,6 @@ export default function ColorServicesPage() {
               European French Balayage & Expert Color Correction
             </h2>
 
-            {/* Updated paragraph with Milbon */}
             <p className="text-[15px] leading-relaxed mb-4">
               Welcome to Abby Haliti Color Studio, a serene oasis of beauty and
               tranquility discreetly nestled on the Upper East Side of NYC. Our
@@ -99,15 +98,15 @@ export default function ColorServicesPage() {
         {[
           {
             title: "French European Balayage",
-            desc: "Experience the elegance of French European balayage, where artistry meets natural beauty. Each strand is hand-painted to create a seamless, sun-kissed gradient reminiscent of European summers. This low-maintenance look grows out gracefully, offering understated luxury.",
+            desc: "Experience the elegance of French European balayage, where artistry meets natural beauty. Each strand is hand-painted to create a seamless, sun-kissed gradient reminiscent of European summers. This low-maintenance look grows out gracefully, offering understated luxury.This low-maintenance look grows out gracefully, offering understated luxury and lasts beautifully for 3 to 6 months.",
           },
           {
             title: "Color Balance",
-            desc: "Revive dull, faded hair with our Color Balance treatment. Strategically applied color enhances your hair’s natural features and creates depth and shine for a multidimensional look.",
+            desc: "Revive dull, faded hair with our Color Balance treatment. Strategically applied color enhances your hair’s natural features and creates depth and shine for a multidimensional look.This service is ideal for anyone transitioning to healthier hair or creating a clean canvas for a more refined balayage. It’s especially effective for correcting over-highlighted or oxidized hair, helping to restore balance, tone, and shine. A great option for color correction and hair revival, results can last up to 2–4 months.",
           },
           {
             title: "Signature Hair Contour",
-            desc: "Designed to enhance facial structure and skin tone, this technique positions select strands for natural highlights and shadows around the face — defining your features with soft dimension.",
+            desc: "Designed to enhance facial structure and skin tone, this technique positions select strands for natural highlights and shadows around the face defining your features with soft dimension.As seen on Vogue-featured style icon Olivia Palermo, this service is the ultimate pick-me-up between full balayage sessions. It refreshes tone, adds shine, and keeps your color looking effortlessly polished. Recommended as a maintenance touch-up, it extends the life of your balayage and lasts up to 2–3 months.",
           },
           {
             title: "Single Process Color",
@@ -127,7 +126,9 @@ export default function ColorServicesPage() {
           },
         ].map((item, i) => (
           <div key={i}>
-            <h3 className="text-lg font-medium mb-2">{item.title}</h3>
+            <h3 className="text-lg font-semibold tracking-wider mb-2">
+              {item.title}
+            </h3>
             <p className="text-[15px] leading-relaxed text-gray-700">
               {item.desc}
             </p>

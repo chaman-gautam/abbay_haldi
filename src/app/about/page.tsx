@@ -15,14 +15,14 @@ export default function AboutPage() {
 
       <main className="pt-24 bg-white max-w-[1400px] m-auto">
         {/* Intro / Biography */}
-        <h2 className="text-2xl font-medium text-center text-black pt-5">
+        <h2 className="text-3xl break-keep leading-relaxed font-medium text-center text-black pt-5">
           Meet Abby Haliti
         </h2>
 
         <section className="py-12 px-6 md:px-12 lg:px-20">
           <div className="flex flex-col md:flex-row md:space-x-12 items-center ">
             {/* Left Text Section */}
-            <div className="max-w-4xl mx-auto space-y-6 text-gray-800 md:pl-10 order-2 md:order-1 max-w-[60%]">
+            <div className="max-w-4xl mx-auto break-keep leading-relaxed space-y-6 text-gray-800 md:pl-10 order-2 md:order-1 max-w-[60%] sm-max-w-[98%]">
               <h3 className="text-lg">
                 Abby Haliti is a world-renowned Hair Color Specialist & Balayage
                 Expert, having created signature looks for countless stars such
@@ -55,10 +55,10 @@ export default function AboutPage() {
                 distributor, and has led masterclasses across Latin America and
                 the Middle East.
               </p>
-              <div className="w-full flex justify-center items-center ">
+              <div className="w-full break-keep leading-relaxed flex justify-center items-center ">
                 <Link
                   href="/contact"
-                  className="inline-block px-16 py-3 bg-[#b38b4d] text-white uppercase text-sm tracking-wide hover:bg-[#a07a3f] transition-colors "
+                  className="inline-block px-16 py-3 bg-[#b38b4d] text-white uppercase text-sm tracking-wide hover:bg-[#a07a3f] transition-colors text-center"
                 >
                   Book an Appointment
                 </Link>

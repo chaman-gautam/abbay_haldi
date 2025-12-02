@@ -4,13 +4,13 @@
 
 :root {
   /* --background: #ffffffba; */
-  --background: #f8f8ff;
-  --foreground: #171717;
+  /* --background: #f8f8ff; */
+  /* --foreground: #171717; */
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  /* --color-background: var(--background);
+  --color-foreground: var(--foreground); */
   /* --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono); */
 }
@@ -18,7 +18,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #f8f8ff;
-    --foreground: #ededed;
+    --foreground: #f8f8ff;
     --font-glacial: "Glacial Indifference", sans-serif;
     --font-dream: "Dream Avenue", serif;
     --font-playfair: "Playfair Display", sans-serif;

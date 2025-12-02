@@ -10,7 +10,7 @@ export default function ShadowDay() {
         <section className="relative w-full h-[40vh]">
           <div className="absolute inset-0 " />
           <div className="absolute inset-0 flex flex-col justify-center items-center text-black px-6 text-center">
-            <h1 className="text-2xl md:text-4xl font-light">
+            <h1 className="text-3xl md:text-4xl font-light">
               Shadow Day with Master Colorist Abby Haliti
             </h1>
             <p className="mt-12 text-sm max-w-xl text-[#a37f2d]">
@@ -20,7 +20,7 @@ export default function ShadowDay() {
         </section>
 
         {/* ===== 3C Section ===== */}
-        <section className="py-16 px-6 md:px-12 lg:px-20">
+        <section className="py-4 pb-8 px-6 md:px-12 lg:px-20">
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-gray-800">
             <div className="border rounded-lg p-6 text-center shadow-sm">
               <div className="text-3xl mb-4">🎧</div>

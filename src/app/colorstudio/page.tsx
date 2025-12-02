@@ -17,8 +17,8 @@ export default function ColorStudioPage() {
         />
         <div className="absolute inset-0 bg-black/10" />
         <div className="absolute flex flex-col items-center text-center">
-          <h1 className="text-5xl font-bold text-white mb-8 text-black">
-            AH Color Studio
+          <h1 className="text-4xl font-semibold text-white mb-8 mt-8 text-black">
+            Reserve Your Experience
           </h1>
 
           <Link href={"https://www.phorest.com/salon/abbyhaliticolorstudio"}>

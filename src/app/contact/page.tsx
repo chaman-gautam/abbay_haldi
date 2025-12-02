@@ -62,8 +62,8 @@ export default function ContactPage() {
       <main className="pt-24 bg-white text-gray-800 font-[var(--font-dream)]">
         {/* ===== Hero Section ===== */}
         <section className="relative w-full h-[45vh] flex flex-col justify-center items-center text-center bg-[#faf7f2]">
-          <h1 className="text-3xl md:text-5xl font-light tracking-wide">
-            Contact Us
+          <h1 className="text-3xl md:text-3xl font-light tracking-wide">
+            Connect with us
           </h1>
           {/* <p className="mt-4 text-gray-600 max-w-lg">
             Get in touch — we’re here to make your vision a reality.

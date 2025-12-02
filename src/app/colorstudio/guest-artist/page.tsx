@@ -8,7 +8,7 @@ export default function GuestArtistPage() {
     <main className="bg-white text-[#1a1a1a] font-light ">
       {/* ====== Page Header ====== */}
       <section className="max-w-5xl pt-8  mx-auto px-6 md:px-12  text-center pb-12">
-        <h1 className="text-4xl mt-24 font-bold tracking-wide mb-12">
+        <h1 className="text-3xl mt-24 font-semibold tracking-wide mb-12">
           Guest Artist
         </h1>
         <div className="flex justify-center items-center mb-10 overflow-hidden h-[600px]">

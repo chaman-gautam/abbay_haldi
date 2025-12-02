@@ -331,7 +331,7 @@ export default function PressPage() {
     <main className=" min-h-screen mt-20">
       {/* ===== Hero Header ===== */}
       <section className=" w-full flex items-center justify-center ">
-        <h1 className="text-4xl md:text-5xl font-bold tracking-wide uppercase pt-8 text-black">
+        <h1 className="text-3xl md:text-3xl font-semibold tracking-wide uppercase pt-8 text-black">
           Press
         </h1>
       </section>
@@ -371,9 +371,9 @@ export default function PressPage() {
 
                 {/* Details */}
                 <div className="pt-5 px-2 text-center">
-                  <h3 className="text-base font-light leading-snug text-[#1a1a1a] group-hover:text-[#a37f2d] transition-colors duration-300">
+                  <p className="text-base font-light leading-snug text-[#1a1a1a] group-hover:text-[#a37f2d] transition-colors duration-300">
                     {item.title}
-                  </h3>
+                  </p>
                   <p className="text-xs text-gray-500 mt-1 uppercase tracking-wide">
                     {item.source}
                   </p>
