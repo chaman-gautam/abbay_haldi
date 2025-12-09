@@ -7,18 +7,28 @@ export default function ShadowDay() {
     <>
       <main className="pt-20 bg-white">
         {/* ===== Hero / Banner ===== */}
-        <section className="relative w-full h-[40vh]">
+        <section className="relative w-full h-[30vh]">
           <div className="absolute inset-0 " />
           <div className="absolute inset-0 flex flex-col justify-center items-center text-black px-6 text-center">
             <h1 className="text-3xl md:text-4xl font-light">
               Shadow Day with Master Colorist Abby Haliti
             </h1>
-            <p className="mt-12 text-sm max-w-xl text-[#a37f2d]">
+            <p className="mt-4 text-sm max-w-xl text-[#a37f2d]">
               Consult, Create, Complete The Three-Step Color Mastery
             </p>
           </div>
         </section>
-
+        <div className="flex justify-center items-center mb-10">
+          <div className="md:w-1/4 ">
+            <Image
+              src="/IMG_6133.jpeg"
+              alt="Abby Haliti"
+              width={400}
+              height={400}
+              className="rounded-lg object-cover w-full"
+            />
+          </div>
+        </div>
         {/* ===== 3C Section ===== */}
         <section className="py-4 pb-8 px-6 md:px-12 lg:px-20">
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-gray-800">
@@ -56,12 +66,12 @@ export default function ShadowDay() {
         {/* ===== Image + Schedule ===== */}
         <section className="py-8 px-6 md:px-12 lg:px-20">
           <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
-            <div className="md:w-1/2">
+            <div className="md:w-1/3">
               <Image
                 src="/IMG_6141.jpeg"
                 alt="Abby Haliti"
-                width={600}
-                height={600}
+                width={400}
+                height={400}
                 className="rounded-lg object-cover w-full"
               />
             </div>

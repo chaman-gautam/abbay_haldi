@@ -22,13 +22,13 @@ export default function AboutPage() {
         <section className="py-12 px-6 md:px-12 lg:px-20">
           <div className="flex flex-col md:flex-row md:space-x-12 items-center ">
             {/* Left Text Section */}
-            <div className="max-w-4xl mx-auto break-keep leading-relaxed space-y-6 text-gray-800 md:pl-10 order-2 md:order-1 max-w-[60%] sm-max-w-[98%]">
-              <h3 className="text-lg">
+            <div className="max-w-4xl mx-auto break-keep leading-relaxed space-y-6 text-gray-800 md:pl-10 order-2 md:order-1 max-w-[60%] sm-max-w-[98%] mr-5">
+              <p className="text-lg">
                 Abby Haliti is a world-renowned Hair Color Specialist & Balayage
                 Expert, having created signature looks for countless stars such
                 as Olivia Palermo, Rita Ora, Jane Krakowski, and Sigourney
                 Weaver, just to name a few.
-              </h3>
+              </p>
               <p>
                 Abby Haliti is a prominent hair colorist in New York City,
                 renowned for her precision, artistry, and commitment to

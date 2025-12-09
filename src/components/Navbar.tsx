@@ -55,7 +55,8 @@ function Navbar({ className }: { className?: string }) {
         </div>
 
         {/* ===== Center Logo ===== */}
-        <div className="md:absolute md:left-1/2  md:-translate-x-26">
+        {/* <div className="md:absolute md:left-1/2  md:-translate-x-26"> */}
+        <div className="md:absolute md:left-1/2  md:-translate-x-10">
           <Link href="/" aria-label="Home">
             <Image
               src="/logo-wo-ny-nj-2-removebg-preview.webp"

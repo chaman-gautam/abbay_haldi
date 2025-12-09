@@ -21,6 +21,12 @@ const teamMembers: TeamMember[] = [
     bio: " Abby Haliti is a prominent hair colorist in New York City renowned for her exceptional skills and reputation in the beauty industry. She has been recognized by leading publications such as Vogue, The New York Times, and InStyle, as well as international press. Known for her warm personality and mindful approach to hair coloring, Abby was named the best Balayage Expert by Allure magazine’s Directory of Beauty. Born in South-Eastern Europe and possessing a diverse education, Abby rapidly gained recognition for her unique take on the European hair coloring technique of Balayage. Her expertise in this area has made her a highly sought-after colorist in New York City and globally. She is also a leader in the color industry, serving as a color director and sharing her knowledge by mentoring freelancers globally.",
   },
   {
+    name: "Sedat Gurel",
+    role: "Sedat Gurel | Color Specialist & Hair Designer",
+    imageSrc: "/sedat.webp",
+    bio: " With over 20 years of experience in the hairdressing industry, Sedat Gurel specializes in cutting and coloring. As a former senior education supervisor at L’Oréal for 12 years, he led international trainings and large-scale shows, enhancing the skills of hair professionals worldwide. After managing his own salon for 4 years, Sedat is now based in New York, offering personalized cutting and coloring services that blend creativity with precision.",
+  },
+  {
     name: "Malena",
     role: "Malena | Hair Colorist",
     imageSrc: "/NIK_8284.webp",
@@ -32,12 +38,7 @@ const teamMembers: TeamMember[] = [
     imageSrc: "/NIK_8217.webp",
     bio: " Hiro Araki, a senior stylist with over 22 years of experience in the hairdressing industry, has owned a salon in Tokyo and worked with some of the top salons in New York City. He has earned immense respect in the beauty world for his meticulous and beautiful cuts, and his precision is unmatched. His passion for the beauty world has exceeded expectations, and he has had the honor of working with celebrity clients such as Kamala Devi Harris, Juan Martín del Potro, Ina Garten, Isao Aoki, to name a few.",
   },
-  {
-    name: "Sedat Gurel",
-    role: "Sedat Gurel | Color Specialist & Hair Designer",
-    imageSrc: "/sedat.webp",
-    bio: " With over 20 years of experience in the hairdressing industry, Sedat Gurel specializes in cutting and coloring. As a former senior education supervisor at L’Oréal for 12 years, he led international trainings and large-scale shows, enhancing the skills of hair professionals worldwide. After managing his own salon for 4 years, Sedat is now based in New York, offering personalized cutting and coloring services that blend creativity with precision.",
-  },
+
   {
     name: "Roy",
     role: "Roy Teeluck | Hairstylist",
@@ -56,7 +57,9 @@ export default function TeamPage() {
     <main className="bg-white text-[#1a1a1a] font-light">
       {/* ===== Hero Title ===== */}
       <section className="pt-28 pb-12 text-center">
-        <h1 className="text-3xl md:text-3xl font-semibold ">Meet Our Team</h1>
+        <h1 className="text-3xl md:text-3xl font-semibold text-black">
+          Meet Our Team
+        </h1>
       </section>
 
       {/* ===== Intro Section ===== */}

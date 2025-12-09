@@ -17,9 +17,9 @@ export default function ColorStudioPage() {
         />
         <div className="absolute inset-0 bg-black/10" />
         <div className="absolute flex flex-col items-center text-center">
-          <h1 className="text-4xl font-semibold text-white mb-8 mt-8 text-black">
+          {/* <h1 className="text-4xl font-semibold text-white mb-8 mt-8 text-black">
             Reserve Your Experience
-          </h1>
+          </h1> */}
 
           <Link href={"https://www.phorest.com/salon/abbyhaliticolorstudio"}>
             <button className="bg-[#a37f2d] text-white px-8 py-3 text-sm tracking-wide hover:bg-[#8d6f25] transition-all">

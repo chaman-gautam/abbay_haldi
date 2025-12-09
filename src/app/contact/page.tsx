@@ -59,15 +59,21 @@ export default function ContactPage() {
     <>
       <Navbar />
 
-      <main className="pt-24 bg-white text-gray-800 font-[var(--font-dream)]">
+      <main className="pt-20 bg-white text-gray-800 font-[var(--font-dream)]">
         {/* ===== Hero Section ===== */}
-        <section className="relative w-full h-[45vh] flex flex-col justify-center items-center text-center bg-[#faf7f2]">
-          <h1 className="text-3xl md:text-3xl font-light tracking-wide">
+        <section
+          style={{
+            backgroundImage: "url('/MUSIN_0049.jpg')",
+            backgroundSize: "cover",
+            backgroundPosition: "bottom",
+          }}
+          className="relative w-full h-[55vh] flex flex-col justify-center items-center text-center"
+        >
+          <div className="absolute inset-0 backdrop-blur-sm bg-black/30"></div>
+
+          <h1 className="relative z-10 text-3xl md:text-4xl font-light tracking-wide text-white">
             Connect with us
           </h1>
-          {/* <p className="mt-4 text-gray-600 max-w-lg">
-            Get in touch — we’re here to make your vision a reality.
-          </p> */}
         </section>
 
         {/* ===== Contact Info + Form ===== */}
