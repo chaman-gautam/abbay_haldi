@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
 // import { cn } from "@/lib/utils";
 // import Navbar from "@/components/Navbar";
 // import Footer from "@/components/Footer";
@@ -15,118 +15,90 @@ export default function AboutPage() {
 
       <main className="pt-24 bg-white max-w-[1400px] m-auto">
         {/* Intro / Biography */}
-        <h2 className="text-3xl break-keep leading-relaxed font-medium text-center text-black pt-5">
-          Meet Abby Haliti
-        </h2>
-
-        <section className="py-12 px-6 md:px-12 lg:px-20">
-          <div className="flex flex-col md:flex-row md:space-x-12 items-center ">
-            {/* Left Text Section */}
-            <div className="max-w-4xl mx-auto break-keep leading-relaxed space-y-6 text-gray-800 md:pl-10 order-2 md:order-1 max-w-[60%] sm-max-w-[98%] mr-5">
-              <p className="text-lg">
-                Abby Haliti is a world-renowned Hair Color Specialist & Balayage
-                Expert, having created signature looks for countless stars such
-                as Olivia Palermo, Rita Ora, Jane Krakowski, and Sigourney
-                Weaver, just to name a few.
-              </p>
-              <p>
-                Abby Haliti is a prominent hair colorist in New York City,
-                renowned for her precision, artistry, and commitment to
-                sustainable beauty. With over 23 years of experience, she has
-                earned recognition from Vogue, The New York Times, InStyle and
-                international media for her mastery of balayage and her
-                innovative “European Method” of hair coloring.
-              </p>
-              <p>
-                Born in southeastern Europe, Abby quickly gained acclaim for her
-                fresh, mindful approach to color. Allure magazine named her one
-                of the best balayage experts in its Directory of Beauty.
-              </p>
-              <p>
-                Her philosophy is simple: <strong>Less is more.</strong> Abby’s
-                signature “3C Simplicity Method” empowers clients to enjoy
-                beautiful hair that grows out gracefully, creating a sustainable
-                routine with the freedom of fewer salon visits.
-              </p>
-              <p>
-                Beyond her Upper East Side studio, Abby mentors professionals
-                around the world. In 2018, she trained salon owners from Japan
-                in partnership with Dahlia, the country’s largest beauty
-                distributor, and has led masterclasses across Latin America and
-                the Middle East.
-              </p>
-              <div className="w-full break-keep leading-relaxed flex justify-center items-center ">
-                <Link
-                  href="/contact"
-                  className="inline-block px-16 py-3 bg-[#b38b4d] text-white uppercase text-sm tracking-wide hover:bg-[#a07a3f] transition-colors text-center"
-                >
-                  Book an Appointment
-                </Link>
-              </div>
-            </div>
-
-            {/* Right Image Section */}
-            <div className="w-full md:w-[50%] mb-8 md:mb-0 order-1 md:order-2">
+        <section className="text-center py-16 px-6 md:px-20 lg:px-32 max-w-6xl mx-auto">
+          <div className="flex justify-center items-center  mb-10 ">
+            <Link href="/" aria-label="Home">
               <Image
-                src="/IMG_6141.jpeg"
+                src="/IMG_6133.jpeg"
                 alt="Abby Haliti Logo"
-                width={800}
+                width={900}
                 height={1000}
-                className="w-full h-auto object-cover"
                 priority
               />
-            </div>
+            </Link>
           </div>
-        </section>
 
-        {/* Featured in / Press logos */}
-        <section className="py-12 px-6 bg-white">
-          {/* Horizontal scroll wrapper */}
-          <div className="overflow-x-auto scrollbar-hide">
-            <div className="flex gap-10 items-center justify-start w-max px-4 animate-scroll-slow">
-              {/* Example: 20 logos (you can add or replace freely) */}
-              {[
-                "/1.webp",
-                "/2.webp",
-                "/3.webp",
-                "/4.webp",
-                "/5.webp",
-                "/6.webp",
-                "/7.webp",
-                "/8.webp",
-                "/9.webp",
-                "/10.webp",
-                "/11.webp",
-                "/12.webp",
-                "/13.webp",
-                "/14.webp",
-                "/15.webp",
-                "/16.webp",
-                "/17.webp",
-                "/18.webp",
-                "/19.webp",
-                "/20.webp",
-              ].map((src, i) => (
-                <div
-                  key={i}
-                  className="flex-shrink-0 w-[250px] h-[200px] relative text-yellow transition-all duration-300"
-                >
-                  <Image
-                    src={src}
-                    alt={`logo-${i}`}
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-              ))}
-            </div>
+          {/* ===== Title ===== */}
+          <h2 className="text-2xl md:text-3xl font-serif font-medium mb-6">
+            Abby Haliti: World-Renowned Hair Color Specialist & Balayage Expert
+          </h2>
+
+          {/* ===== Paragraphs ===== */}
+          <div className="space-y-6 text-[15px] leading-relaxed text-gray-800">
+            <p>
+              Abby Haliti is a leading hair colorist based in New York City,
+              known for her precision, artistry, and commitment to sustainable
+              beauty. With over 23 years of experience, she has earned
+              recognition from
+              <span className="italic"> Vogue</span>,{" "}
+              <span className="italic">The New York Times</span>,{" "}
+              <span className="italic">InStyle</span>, and international media
+              for her mastery of balayage and her innovative “European Method”
+              of hair coloring.
+            </p>
+
+            <p>
+              Originally from southeastern Europe, Abby quickly gained acclaim
+              for her fresh, mindful approach to color.{" "}
+              <span className="italic">Allure</span> magazine named her one of
+              the best balayage experts in its{" "}
+              <span className="italic">Directory of Beauty</span>. As an
+              accomplished color corrector, she specializes in luminous,
+              natural-looking results that protect the integrity of the hair.
+            </p>
+
+            <p>
+              Her philosophy is simple: <strong>Less is more.</strong> Abby’s
+              signature <strong>3C Simplicity Method</strong> empowers clients
+              to enjoy beautiful hair that grows out gracefully, creating a
+              sustainable routine with the freedom of fewer salon visits.
+            </p>
+
+            <p>
+              Beyond her Upper East Side studio, Abby mentors professionals
+              around the world. In 2018, she trained salon owners from Japan in
+              partnership with Dahlia, the country’s largest beauty distributor,
+              and has led masterclasses and pop-ups across Latin America and the
+              Middle East, including Dubai, Kuwait, and Saudi Arabia.
+            </p>
+
+            <p>
+              As an <span className="italic">Allure Content Creator</span>,
+              member of the{" "}
+              <span className="italic">Byrdie Wellness Board</span>, and
+              industry educator, Abby was recognized in 2023 by one of the top
+              beauty magazines for her influence and expertise. She is dedicated
+              to inspiring women and professionals to embrace healthy,
+              effortless color. Her work proves that hair is often the first
+              thing people notice — and that true beauty starts with healthy
+              hair.
+            </p>
+          </div>
+
+          {/* ===== Learn More Button ===== */}
+          <div className="mt-10">
+            <Link
+              href="/about"
+              className="inline-block bg-[#a37f2d] text-white px-6 py-3 text-sm font-medium uppercase tracking-wider rounded-sm hover:bg-[#a07a3f] transition-colors"
+            >
+              Learn More
+            </Link>
           </div>
         </section>
+        {/* <Footer /> */}
 
         {/* CTA / Learn more button */}
       </main>
-
-      {/* <Footer /> */}
     </>
   );
 }
