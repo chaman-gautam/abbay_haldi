@@ -57,7 +57,7 @@ export default function TeamPage() {
     <main className="bg-white text-[#1a1a1a] font-light">
       {/* ===== Hero Title ===== */}
       <section className="pt-28 pb-12 text-center">
-        <h1 className="text-3xl md:text-3xl font-semibold text-black">
+        <h1 className="text-3xl break-keep leading-relaxed font-medium text-center text-black pt-5">
           Meet Our Team
         </h1>
       </section>

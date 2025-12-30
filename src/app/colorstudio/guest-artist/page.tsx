@@ -1,5 +1,5 @@
 "use client";
-
+import sectionTitle from "@/components/sm_components/page_heading";
 import Image from "next/image";
 import React from "react";
 import Link from "next/link";
@@ -8,9 +8,10 @@ export default function GuestArtistPage() {
     <main className="bg-white text-[#1a1a1a] font-light ">
       {/* ====== Page Header ====== */}
       <section className="max-w-5xl pt-8  mx-auto px-6 md:px-12  text-center pb-12">
-        <h1 className="text-3xl mt-24 font-semibold tracking-wide mb-12">
+        <h1 className="text-3xl break-keep leading-relaxed font-medium text-center text-black mt-24 pb-12">
           Guest Artist
         </h1>
+        {/* <sectionTitle>jflas</sectionTitle> */}
         <div className="flex justify-center items-center mb-10 overflow-hidden h-[600px]">
           {" "}
           {/* custom height */}
@@ -26,7 +27,7 @@ export default function GuestArtistPage() {
           </Link>
         </div>
 
-        <h2 className="text-2xl font-bold mb-2">Dhiran Mistry</h2>
+        <h2 className="text-2xl font-medium mb-2">Dhiran Mistry</h2>
         <p className="text-[#a37f2d] text-sm font-medium mb-6">Hairstylist</p>
 
         <div className="max-w-3xl mx-auto text-[15px] leading-relaxed text-gray-700 space-y-4">

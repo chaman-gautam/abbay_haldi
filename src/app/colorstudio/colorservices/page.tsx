@@ -33,7 +33,7 @@ export default function ColorServicesPage() {
       {/* ====== Hero Section ====== */}
       <section className="max-w-6xl mx-auto px-6 md:px-12 py-16 md:py-20">
         <div className="text-center mb-12">
-          <h1 className="text-3xl md:text-3xl font-semibold tracking-wide text-[#1a1a1a]">
+          <h1 className="text-3xl break-keep leading-relaxed font-medium text-center text-black pt-5">
             Color Services
           </h1>
         </div>
@@ -126,9 +126,9 @@ export default function ColorServicesPage() {
           },
         ].map((item, i) => (
           <div key={i}>
-            <h3 className="text-lg font-semibold tracking-wider mb-2">
+            <h2 className="text-lg font-semibold tracking-wider mb-2">
               {item.title}
-            </h3>
+            </h2>
             <p className="text-[15px] leading-relaxed text-gray-700">
               {item.desc}
             </p>

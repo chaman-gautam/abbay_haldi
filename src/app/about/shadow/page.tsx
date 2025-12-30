@@ -66,7 +66,7 @@ export default function ShadowDay() {
         {/* ===== Image + Schedule ===== */}
         <section className="py-8 px-6 md:px-12 lg:px-20">
           <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
-            <div className="md:w-1/3">
+            {/* <div className="md:w-1/3">
               <Image
                 src="/IMG_6141.jpeg"
                 alt="Abby Haliti"
@@ -74,9 +74,9 @@ export default function ShadowDay() {
                 height={400}
                 className="rounded-lg object-cover w-full"
               />
-            </div>
+            </div> */}
             <div className="md:w-1/2 space-y-4 text-gray-800">
-              <h3 className="text-xl font-semibold">Class Schedule:</h3>
+              <h2 className="text-xl font-semibold">Class Schedule:</h2>
               <p>
                 <strong>Time:</strong> 9:00 AM – 4:00 PM
               </p>

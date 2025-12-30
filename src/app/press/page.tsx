@@ -331,7 +331,7 @@ export default function PressPage() {
     <main className=" min-h-screen mt-20">
       {/* ===== Hero Header ===== */}
       <section className=" w-full flex items-center justify-center ">
-        <h1 className="text-3xl md:text-3xl font-semibold tracking-wide uppercase pt-8 text-black">
+        <h1 className="text-4xl break-keep leading-relaxed font-medium text-center text-black  mt-8">
           Press
         </h1>
       </section>
