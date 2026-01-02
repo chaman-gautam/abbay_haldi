@@ -105,7 +105,7 @@ export default function TeamPage() {
       {/* </section> */}
 
       {/* ===== Team Members Grid ===== */}
-      <section className="max-w-6xl mx-auto px-6 md:px-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 justify-items-center pb-24 mt-10">
+      <section className="max-w-6xl mx-auto px-6 max-sm:px-1 md:px-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 justify-items-center pb-24 mt-10">
         {teamMembers.map((member, index) => (
           <motion.div
             key={index}

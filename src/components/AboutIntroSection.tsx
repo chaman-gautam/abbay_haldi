@@ -38,10 +38,10 @@ const AboutIntroSection = () => {
       </h2>
 
       <section className="py-12 px-6 md:px-12 lg:px-20">
-        <div className="flex flex-col md:flex-row md:space-x-12 items-center ">
+        <div className="flex flex-col md:flex-row md:space-x-12 items-start ">
           {/* Left Text Section */}
-          <div className="max-w-4xl mx-auto break-keep leading-relaxed space-y-6 text-gray-800 md:pl-10 order-2 md:order-1 max-w-[60%] sm-max-w-[98%]s">
-            <p className="text-lg">
+          <div className=" mx-auto break-keep leading-relaxed space-y-6 text-gray-800 md:pl-10 order-2 md:order-1 max-w-[60%] max-sm:min-w-[98%] max-sm:text-center">
+            <p className="">
               Abby Haliti is a world-renowned Hair Color Specialist & Balayage
               Expert, having created signature looks for countless stars such as
               Olivia Palermo, Rita Ora, Jane Krakowski, and Sigourney Weaver,
@@ -84,7 +84,7 @@ const AboutIntroSection = () => {
           </div>
 
           {/* Right Image Section */}
-          <div className="w-full md:w-[50%] mb-8 md:mb-0 order-1 md:order-2 md:ml-6 pb-16">
+          <div className="w-full md:w-[50%] mb-8 md:mb-0 order-1 md:order-2 md:ml-8 md:pt-2 max-sm:pb-4">
             <Image
               src="/IMG_6141.jpeg"
               alt="Abby Haliti Logo"
@@ -98,7 +98,7 @@ const AboutIntroSection = () => {
       </section>
 
       {/* Featured in / Press logos */}
-      <section className="py-8 px-6 bg-white">
+      <section className="py-8 px-6 bg-white max-sm:py-1">
         {/* Horizontal scroll wrapper */}
         <div className="overflow-x-auto scrollbar-hide">
           <div className="flex gap-10 items-center justify-start w-max px-4 animate-scroll-slow">

@@ -67,7 +67,7 @@ export default function ContactPage() {
             backgroundSize: "cover",
             backgroundPosition: "bottom",
           }}
-          className="relative w-full h-[55vh] flex flex-col justify-center items-center text-center"
+          className="relative w-full h-[55vh] max-sm:max-h-[20vh] flex flex-col justify-center items-center text-center"
         >
           <div className="absolute inset-0 backdrop-blur-sm bg-black/30"></div>
 
