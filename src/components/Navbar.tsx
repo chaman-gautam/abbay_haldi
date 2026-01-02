@@ -131,7 +131,10 @@ function Navbar({ className }: { className?: string }) {
                 >
                   Color Services
                 </Link>
-                <Link href="/guest-artist" onClick={() => setMobileOpen(false)}>
+                <Link
+                  href="/colorstudio/guest-artist"
+                  onClick={() => setMobileOpen(false)}
+                >
                   Guest Artist
                 </Link>
               </div>
