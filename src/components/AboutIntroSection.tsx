@@ -84,7 +84,7 @@ const AboutIntroSection = () => {
           </div>
 
           {/* Right Image Section */}
-          <div className="w-full md:w-[50%] mb-8 md:mb-0 order-1 md:order-2 md:ml-1 pb-16">
+          <div className="w-full md:w-[50%] mb-8 md:mb-0 order-1 md:order-2 md:ml-6 pb-16">
             <Image
               src="/IMG_6141.jpeg"
               alt="Abby Haliti Logo"
