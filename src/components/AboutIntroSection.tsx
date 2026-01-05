@@ -37,10 +37,10 @@ const AboutIntroSection = () => {
         Meet Abby Haliti
       </h2>
 
-      <section className="py-12 px-6 md:px-12 lg:px-20">
-        <div className="flex flex-col md:flex-row md:space-x-12 items-start ">
+      <section className="py-12 px-6 md:px-10 lg:px-20">
+        <div className="flex flex-col md:flex-row md:space-x-12 items-center md:px-3">
           {/* Left Text Section */}
-          <div className=" mx-auto break-keep leading-relaxed space-y-6 text-gray-800 md:pl-10 order-2 md:order-1 max-w-[60%] max-sm:min-w-[98%] max-sm:text-center">
+          <div className=" mx-auto break-keep leading-relaxed space-y-6 text-gray-800  order-2 md:order-1 max-w-[58%] max-sm:min-w-[98%] max-sm:text-center">
             <p className="">
               Abby Haliti is a world-renowned Hair Color Specialist & Balayage
               Expert, having created signature looks for countless stars such as
@@ -84,7 +84,7 @@ const AboutIntroSection = () => {
           </div>
 
           {/* Right Image Section */}
-          <div className="w-full md:w-[50%] mb-8 md:mb-0 order-1 md:order-2 md:ml-8 md:pt-2 max-sm:pb-4">
+          <div className="w-full md:w-[50%] mb-8 md:mb-0 order-1 md:order-2 md:ml-15 md:pb-19 max-sm:pb-4">
             <Image
               src="/IMG_6141.jpeg"
               alt="Abby Haliti Logo"
