@@ -7,9 +7,9 @@ export default function ShadowDay() {
     <>
       <main className="pt-20 bg-white">
         {/* ===== Hero / Banner ===== */}
-        <section className="relative w-full h-[30vh]">
+        <section className="relative w-full h-[15vh] ">
           <div className="absolute inset-0 " />
-          <div className="absolute inset-0 flex flex-col justify-center items-center text-black px-6 text-center">
+          <div className="absolute inset-0 flex flex-col justify-end items-center text-black px-6 text-center">
             <h1 className="text-3xl md:text-4xl font-light">
               Shadow Day with Master Colorist Abby Haliti
             </h1>
@@ -18,7 +18,7 @@ export default function ShadowDay() {
             </p>
           </div>
         </section>
-        <div className="flex justify-center items-center mb-10">
+        <div className="flex justify-center items-center my-10">
           <div className="md:w-1/4 ">
             <Image
               src="/IMG_6133.jpeg"
