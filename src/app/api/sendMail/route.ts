@@ -5,37 +5,36 @@ export async function POST(req: Request) {
   try {
     const { name, email, phone, subject, message } = await req.json();
 
-    // Configure your SMTP credentials
+    // ✅ Create transporter
     const transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com",
-      port: 465,
-      secure: true,
+      service: "gmail",
       auth: {
-        user: process.env.SMTP_USER, // your email
-        pass: process.env.SMTP_PASS, // app password (not your Gmail password)
+        user: process.env.EMAIL_USER, // site owner email
+        pass: process.env.EMAIL_PASS, // app password
       },
     });
 
-    // Email details
+    // ✅ Email content
     await transporter.sendMail({
-      from: `"${name}" <${email}>`,
-      to: process.env.RECEIVER_EMAIL || process.env.SMTP_USER, // your receiving address
-      subject: subject || "New Contact Form Message",
+      from: `"Website Contact" <${process.env.EMAIL_USER}>`,
+      to: process.env.EMAIL_USER, // owner receives mail
+      replyTo: email, // reply goes to user
+      subject: subject || "New Contact Form Submission",
       html: `
-        <h2>New Contact Message</h2>
-        <p><b>Name:</b> ${name}</p>
-        <p><b>Email:</b> ${email}</p>
-        <p><b>Phone:</b> ${phone || "N/A"}</p>
-        <p><b>Message:</b></p>
+        <h2>New Contact Form Message</h2>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Phone:</strong> ${phone || "N/A"}</p>
+        <p><strong>Message:</strong></p>
         <p>${message}</p>
       `,
     });
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error("Mail Error:", error);
+    console.error("Email error:", error);
     return NextResponse.json(
-      { success: false, error: "Failed to send email" },
+      { success: false, error: "Email failed" },
       { status: 500 }
     );
   }

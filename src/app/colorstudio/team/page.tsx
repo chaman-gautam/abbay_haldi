@@ -32,12 +32,12 @@ const teamMembers: TeamMember[] = [
     imageSrc: "/NIK_8284.webp",
     bio: " Malena is a senior colorist with 25 years of experience, originally from Mexico City. Her passion has always been in the color department, where she has trained to master the art of hair color. Melena has extensive experience working in some of the top salons in NYC, where she has developed her expertise in the color department. Additionally, she has provided professional hotline services for Clairol, further honing her skills and knowledge in the field.",
   },
-  {
-    name: "Hiro Araki",
-    role: "Hiro Araki | Hairstylist",
-    imageSrc: "/NIK_8217.webp",
-    bio: " Hiro Araki, a senior stylist with over 22 years of experience in the hairdressing industry, has owned a salon in Tokyo and worked with some of the top salons in New York City. He has earned immense respect in the beauty world for his meticulous and beautiful cuts, and his precision is unmatched. His passion for the beauty world has exceeded expectations, and he has had the honor of working with celebrity clients such as Kamala Devi Harris, Juan Martín del Potro, Ina Garten, Isao Aoki, to name a few.",
-  },
+  // {
+  //   name: "Hiro Araki",
+  //   role: "Hiro Araki | Hairstylist",
+  //   imageSrc: "/NIK_8217.webp",
+  //   bio: " Hiro Araki, a senior stylist with over 22 years of experience in the hairdressing industry, has owned a salon in Tokyo and worked with some of the top salons in New York City. He has earned immense respect in the beauty world for his meticulous and beautiful cuts, and his precision is unmatched. His passion for the beauty world has exceeded expectations, and he has had the honor of working with celebrity clients such as Kamala Devi Harris, Juan Martín del Potro, Ina Garten, Isao Aoki, to name a few.",
+  // },
 
   {
     name: "Roy",
