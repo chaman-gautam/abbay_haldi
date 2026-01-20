@@ -7,17 +7,17 @@ export async function POST(req: Request) {
 
     // ✅ Create transporter
     const transporter = nodemailer.createTransport({
-      service: "gmail",
+      service: "Gmail",
       auth: {
-        user: process.env.EMAIL_USER, // site owner email
-        pass: process.env.EMAIL_PASS, // app password
+        user: process.env.SMTP_USER, // site owner email
+        pass: process.env.SMTP_PASS, // app password
       },
     });
 
     // ✅ Email content
     await transporter.sendMail({
       from: `"Website Contact" <${process.env.EMAIL_USER}>`,
-      to: process.env.EMAIL_USER, // owner receives mail
+      to: process.env.SMTP_USER, // owner receives mail
       replyTo: email, // reply goes to user
       subject: subject || "New Contact Form Submission",
       html: `
@@ -29,13 +29,18 @@ export async function POST(req: Request) {
         <p>${message}</p>
       `,
     });
+    await transporter.sendMail({
+      to: email,
+      subject: "We received your message",
+      text: "Thanks for contacting us. We will respond shortly.",
+    });
 
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error("Email error:", error);
     return NextResponse.json(
       { success: false, error: "Email failed" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
