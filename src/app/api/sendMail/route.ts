@@ -32,7 +32,9 @@ export async function POST(req: Request) {
       `,
     });
     await transporter.sendMail({
+      from: "Abby Haliti",
       to: email,
+      replyTo: `abby@abbyhaliti.com`,
       subject: "We received your message",
       text: "Thanks for contacting us. We will respond shortly.",
     });
