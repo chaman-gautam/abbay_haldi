@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 
 import type { NextRequest } from "next/server"; // <--- Ensure this says 'next/server'
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   // 1. Get the session (Supabase usually stores it in a cookie)
 
   // Check your cookie name, often it starts with 'sb-'
