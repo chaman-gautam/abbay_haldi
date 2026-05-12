@@ -6,8 +6,9 @@ import Footer from "@/components/Footer";
 import localFont from "next/font/local";
 import { Playfair_Display } from "next/font/google";
 import Script from "next/script";
+import BookingWidget from "@/components/BookingWidget";
 // import { Script } from "next/script";
-
+import LayoutWrapper from "@/components/LayoutWrapper";
 // Body Font - Glacial Indifference
 const glacial = localFont({
   src: [
@@ -94,9 +95,7 @@ export default function RootLayout({
         </Script>
       </head>
       <body className={`${glacial.variable} ${dreamAvenue.variable}`}>
-        <Navbar />
-        {children}
-        <Footer />
+        <LayoutWrapper>{children}</LayoutWrapper>
       </body>
     </html>
   );

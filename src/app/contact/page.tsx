@@ -11,7 +11,9 @@ import {
 } from "react-icons/fa";
 import Navbar from "@/components/Navbar";
 // import Footer from "@/components/Footer";
-
+import { useEffect } from "react";
+// import { supabase } from "@/lib/supabase";
+import { supabase } from "@/lib/supabase/client";
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: "",
@@ -20,9 +22,19 @@ export default function ContactPage() {
     subject: "",
     message: "",
   });
+  const [contactData, setContactData] = useState<any>(null);
+
+  useEffect(() => {
+    supabase
+      .from("contact_settings")
+      .select("*")
+      .limit(1)
+      .single()
+      .then(({ data }) => setContactData(data));
+  }, []);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -54,6 +66,7 @@ export default function ContactPage() {
       alert("⚠️ Something went wrong!");
     }
   };
+  // console.log("Contact Data:", contactData);
 
   return (
     <>
@@ -86,11 +99,7 @@ export default function ContactPage() {
               {/* Address */}
               <div className="flex items-start space-x-4">
                 <FaMapMarkerAlt className="text-[#b38b4d] text-xl mt-1" />
-                <p>
-                  130 E 65th Street
-                  <br />
-                  New York, NY 10065
-                </p>
+                <p>{contactData?.address}</p>
               </div>
 
               {/* Phone */}
@@ -102,7 +111,7 @@ export default function ContactPage() {
                       href="tel:212-888-2221"
                       className="hover:text-[#b38b4d] transition-colors"
                     >
-                      (212) 888-2221
+                      {contactData?.phone}
                     </a>
                   </p>
                   <p>
@@ -111,7 +120,7 @@ export default function ContactPage() {
                       href="tel:917-535-1909"
                       className="hover:text-[#b38b4d] transition-colors"
                     >
-                      (917) 535-1909
+                      {contactData?.text_phone}
                     </a>
                   </p>
                 </div>
@@ -124,7 +133,7 @@ export default function ContactPage() {
                   href="mailto:info@abbyhaliti.com"
                   className="hover:text-[#b38b4d] transition-colors"
                 >
-                  info@abbyhaliti.com
+                  {contactData?.email}
                 </a>
               </div>
 
@@ -137,7 +146,7 @@ export default function ContactPage() {
                   rel="noopener noreferrer"
                   className="hover:text-[#b38b4d] transition-colors"
                 >
-                  @abbyhaliti
+                  {contactData?.instagram}
                 </Link>
               </div>
 
@@ -145,8 +154,9 @@ export default function ContactPage() {
               <div className="flex items-start space-x-4">
                 <FaClock className="text-[#b38b4d] text-lg mt-1" />
                 <div>
-                  <p>Tuesday – Saturday: 10 AM – 6 PM</p>
-                  <p>Sunday & Monday: Closed</p>
+                  {contactData?.business_days}
+                  <br />
+                  {contactData?.business_hours}
                 </div>
               </div>
             </div>

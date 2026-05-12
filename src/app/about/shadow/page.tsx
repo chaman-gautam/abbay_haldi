@@ -1,8 +1,29 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import { supabase } from "@/lib/supabase/client";
 
 export default function ShadowDay() {
+  const [data, setData] = useState<any>(null);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  async function fetchData() {
+    const { data, error } = await supabase
+      .from("shadow_schedule")
+      .select("*")
+      .limit(1)
+      .single();
+
+    if (!error) setData(data);
+  }
+
+  if (!data)
+    return <p className="text-center py-20 pt-16 text-black">Loading...</p>;
+
   return (
     <>
       <main className="pt-20 bg-white">
@@ -78,15 +99,11 @@ export default function ShadowDay() {
             <div className="md:w-1/2 space-y-4 text-gray-800">
               <h2 className="text-xl font-semibold">Class Schedule:</h2>
               <p>
-                <strong>Time:</strong> 9:00 AM – 4:00 PM
+                <strong>Time:</strong> {data.class_time}
               </p>
+              <p>{data.class_description}</p>
               <p>
-                The class begins at 9:00 AM and concludes at 4:00 PM, providing
-                a full day of immersive learning and hands-on experience with
-                Abby Haliti.
-              </p>
-              <p>
-                <strong>Shadow Day Pricing:</strong> $1,500
+                <strong>Shadow Day Pricing:</strong> {data.price}
               </p>
             </div>
           </div>
