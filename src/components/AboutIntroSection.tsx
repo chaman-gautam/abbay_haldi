@@ -75,7 +75,7 @@ const AboutIntroSection = () => {
             </p>
             <div className="w-full break-keep leading-relaxed flex justify-center items-center ">
               <Link
-                href="/contact"
+                href="https://www.phorest.com/salon/abbyhaliticolorstudio"
                 className="inline-block px-16 py-3 bg-[#b38b4d] text-white uppercase text-sm tracking-wide hover:bg-[#a07a3f] transition-colors text-center"
               >
                 Book an Appointment
