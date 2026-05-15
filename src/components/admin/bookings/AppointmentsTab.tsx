@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 type Booking = {
   id: string;
   created_at: string;
+  appointment_date: string;
   service_type: string;
   result_type: string;
   recommended_service: string;
@@ -20,9 +21,13 @@ export default function AppointmentsTab() {
   const [bookings, setBookings] = useState<Booking[]>([]);
   const [loading, setLoading] = useState(true);
 
+  // Filters
+  const [searchTerm, setSearchTerm] = useState("");
+  const [statusFilter, setStatusFilter] = useState("all");
+
   const loadBookings = async () => {
     try {
-      const res = await fetch("/api/admin/bookings");
+      const res = await fetch("/api/admin/dashboard/bookings");
       const data = await res.json();
 
       if (data.success) {
@@ -39,6 +44,47 @@ export default function AppointmentsTab() {
     loadBookings();
   }, []);
 
+  // Filtered bookings
+  const filteredBookings = useMemo(() => {
+    return bookings.filter((booking) => {
+      const query = searchTerm.toLowerCase().trim();
+
+      const matchesSearch =
+        !query ||
+        (booking.name || "").toLowerCase().includes(query) ||
+        (booking.email || "").toLowerCase().includes(query) ||
+        (booking.phone || "").toLowerCase().includes(query) ||
+        (booking.service_type || "").toLowerCase().includes(query) ||
+        (booking.result_type || "").toLowerCase().includes(query) ||
+        (booking.recommended_service || "").toLowerCase().includes(query) ||
+        (booking.time_slot || "").toLowerCase().includes(query) ||
+        (booking.appointment_date || "").toLowerCase().includes(query);
+
+      const currentStatus = (booking.status || "pending").toLowerCase();
+
+      const matchesStatus =
+        statusFilter === "all" || currentStatus === statusFilter.toLowerCase();
+
+      return matchesSearch && matchesStatus;
+    });
+  }, [bookings, searchTerm, statusFilter]);
+
+  // Status badge colors
+  const getStatusClasses = (status: string) => {
+    const normalized = (status || "pending").toLowerCase();
+
+    switch (normalized) {
+      case "confirmed":
+        return "bg-blue-100 text-blue-700";
+      case "completed":
+        return "bg-green-100 text-green-700";
+      case "cancelled":
+        return "bg-red-100 text-red-700";
+      default:
+        return "bg-yellow-100 text-yellow-700";
+    }
+  };
+
   return (
     <div className="space-y-6">
       {/* Header */}
@@ -49,52 +95,103 @@ export default function AppointmentsTab() {
         </p>
       </div>
 
+      {/* Filters */}
+      <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {/* Search */}
+          <input
+            type="text"
+            placeholder="Search by name, email, phone, or service..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#b38b4d]"
+          />
+
+          {/* Status Filter */}
+          <select
+            value={statusFilter}
+            onChange={(e) => setStatusFilter(e.target.value)}
+            className="w-full border border-gray-300 rounded-lg  py-3 focus:outline-none focus:ring-2 focus:ring-[#b38b4d]"
+          >
+            <option value="all">All Statuses</option>
+            <option value="pending">Pending</option>
+            <option value="confirmed">Confirmed</option>
+            <option value="completed">Completed</option>
+            <option value="cancelled">Cancelled</option>
+          </select>
+
+          {/* Count */}
+          <div className="flex items-center text-sm text-gray-600 px-2">
+            Showing {filteredBookings.length} of {bookings.length} bookings
+          </div>
+        </div>
+      </div>
+
       {/* Bookings List */}
       <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
         {loading ? (
           <p className="text-gray-500">Loading bookings...</p>
-        ) : bookings.length === 0 ? (
+        ) : filteredBookings.length === 0 ? (
           <p className="text-gray-500">No bookings found.</p>
         ) : (
           <div className="space-y-4">
-            {bookings.map((booking) => (
+            {filteredBookings.map((booking) => (
               <div
                 key={booking.id}
-                className="border border-gray-200 rounded-xl p-5"
+                className="border border-orange-400 rounded-xl p-5 hover:shadow-sm transition"
               >
-                <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
-                  {/* Left Side */}
+                <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
+                  {/* Customer Information */}
                   <div className="space-y-1">
                     <h3 className="text-lg font-semibold text-gray-900">
-                      {booking.name}
+                      {booking.name || "Unknown Customer"}
                     </h3>
 
-                    <p className="text-sm text-gray-600">{booking.email}</p>
+                    <p className="text-sm text-gray-600">
+                      {booking.email || "No email"}
+                    </p>
 
-                    <p className="text-sm text-gray-600">{booking.phone}</p>
+                    <p className="text-sm text-gray-600">
+                      {booking.phone || "No phone"}
+                    </p>
 
                     <p className="text-sm text-gray-500 mt-2">
-                      {new Date(booking.created_at).toLocaleString()}
+                      Submitted on{" "}
+                      {booking.created_at
+                        ? new Date(booking.created_at).toLocaleString()
+                        : "Unknown date"}
                     </p>
                   </div>
 
-                  {/* Right Side */}
-                  <div className="space-y-1 text-sm text-gray-700">
+                  {/* Booking Details */}
+                  <div className="space-y-1 text-sm text-gray-700 min-w-[280px]">
                     <p>
-                      <strong>Service Type:</strong> {booking.service_type}
+                      <strong>Service Type:</strong>{" "}
+                      {booking.service_type || "N/A"}
                     </p>
 
                     <p>
-                      <strong>Result Type:</strong> {booking.result_type}
+                      <strong>Result Type:</strong>{" "}
+                      {booking.result_type || "N/A"}
                     </p>
 
                     <p>
                       <strong>Recommended Service:</strong>{" "}
-                      {booking.recommended_service}
+                      {booking.recommended_service || "N/A"}
                     </p>
 
                     <p>
-                      <strong>Time Slot:</strong> {booking.time_slot}
+                      <strong>Appointment Date:</strong>{" "}
+                      {booking.appointment_date
+                        ? new Date(booking.appointment_date).toLocaleDateString(
+                            "en-US",
+                          )
+                        : "Not selected"}
+                    </p>
+
+                    <p>
+                      <strong>Time Slot:</strong>{" "}
+                      {booking.time_slot || "Not selected"}
                     </p>
 
                     <p>
@@ -103,7 +200,11 @@ export default function AppointmentsTab() {
 
                     <p>
                       <strong>Status:</strong>{" "}
-                      <span className="inline-block px-2 py-1 rounded bg-yellow-100 text-yellow-700 text-xs font-semibold">
+                      <span
+                        className={`inline-block px-2 py-1 rounded text-xs font-semibold ${getStatusClasses(
+                          booking.status,
+                        )}`}
+                      >
                         {booking.status || "Pending"}
                       </span>
                     </p>

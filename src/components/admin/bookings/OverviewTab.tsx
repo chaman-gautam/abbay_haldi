@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 
 type Stats = {
   totalBookings: number;
@@ -15,6 +14,7 @@ type RecentBooking = {
   id: string;
   name: string;
   recommendedService: string;
+  appointmentDate: string;
   timeSlot: string;
   created_at: string;
 };
@@ -26,8 +26,6 @@ type DashboardResponse = {
 };
 
 export default function OverviewTab() {
-  const router = useRouter();
-
   const [stats, setStats] = useState<Stats>({
     totalBookings: 0,
     serviceTypes: 0,
@@ -72,7 +70,20 @@ export default function OverviewTab() {
           recommendations: recommendationsJson.count || 0,
         });
 
-        setRecentBookings(bookingsJson.recent || []);
+        // The API returns snake_case fields from Supabase.
+        // Convert them to the camelCase fields used in this component.
+        setRecentBookings(
+          (bookingsJson.recent || []).map((booking: any) => ({
+            id: booking.id,
+            name: booking.name,
+            recommendedService:
+              booking.recommendedService || booking.recommended_service || "",
+            appointmentDate:
+              booking.appointmentDate || booking.appointment_date || "",
+            timeSlot: booking.timeSlot || booking.time_slot || "",
+            created_at: booking.created_at,
+          })),
+        );
       } catch (error) {
         console.error("Failed to load dashboard data:", error);
       } finally {
@@ -116,23 +127,13 @@ export default function OverviewTab() {
 
   return (
     <div className="space-y-8">
-      {/* Top Header */}
-      {/* <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
-        <div>
-          <h1 className="text-3xl font-bold text-gray-900">Dashboard</h1>
-          <p className="text-gray-600 mt-1">
-            Welcome back. Manage your AI booking assistant from one place.
-          </p>
-        </div>
-      </div> */}
-
       {/* Statistics Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
         {statCards.map((card) => (
           <Link
             key={card.title}
             href={card.href}
-            className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 hover:shadow-md transition"
+            className="bg-white rounded-2xl shadow-sm border border-orange-300 p-6 hover:shadow-md transition"
           >
             <div className="flex items-center justify-between">
               <div
@@ -152,7 +153,7 @@ export default function OverviewTab() {
       </div>
 
       {/* Recent Bookings */}
-      <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+      <div className="bg-white rounded-2xl shadow-sm border border-orange-200 p-6">
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-xl font-semibold text-gray-900">
             Recent Bookings
@@ -175,16 +176,22 @@ export default function OverviewTab() {
             {recentBookings.map((booking) => (
               <div
                 key={booking.id}
-                className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 border-b border-gray-100 pb-4 last:border-b-0"
+                className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 border-b border-orange-300 pb-4 last:border-b-0"
               >
                 <div>
                   <h3 className="font-semibold text-gray-900">
                     {booking.name || "Unknown Customer"}
                   </h3>
+
                   <p className="text-sm text-gray-600">
                     {booking.recommendedService || "N/A"}
                   </p>
+
                   <p className="text-xs text-gray-500 mt-1">
+                    {booking.appointmentDate
+                      ? new Date(booking.appointmentDate).toLocaleDateString()
+                      : "No date selected"}
+                    {" • "}
                     {booking.timeSlot || "No time selected"}
                   </p>
                 </div>

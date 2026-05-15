@@ -84,8 +84,8 @@ export default function BookingPage() {
       recommendedService: service,
     }));
 
-    await addBotMessage("Analyzing your hair goals...", 1500);
-    await addBotMessage("Reviewing the best service option...", 1500);
+    await addBotMessage("Analyzing your hair goals...", 2000);
+    await addBotMessage("Reviewing the best service option...", 3000);
     await addBotMessage(`I recommend ${service} ✨`, 1200);
     await addBotMessage("Let's find the perfect appointment time.", 1000);
 
@@ -162,7 +162,7 @@ export default function BookingPage() {
         </div>
 
         {/* Action Area */}
-        <div className="p-4 border-t bg-white space-y-2 ">
+        <div className="p-4 border-t bg-white space-y-2 max-h-48 overflow-y-auto">
           {/* STEP 1 */}
           {step === 1 && (
             <button

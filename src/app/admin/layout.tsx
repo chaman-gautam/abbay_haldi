@@ -20,12 +20,21 @@ export default function AdminLayout({
   // Protect all admin pages
   return (
     <AdminGuard>
-      <div className="flex min-h-screen bg-gray-100">
-        <AdminSidebar />
+      <div className="h-screen flex bg-gray-100 overflow-hidden">
+        {/* Fixed Sidebar */}
+        <aside className="w-64 h-screen fixed left-0 top-0 z-40 bg-white border-r">
+          <AdminSidebar />
+        </aside>
 
-        <div className="flex-1">
-          {/* <AdminHeader /> */}
-          <main className="p-6">{children}</main>
+        {/* Main Content Area */}
+        <div className="flex-1 ml-64 flex flex-col h-screen">
+          {/* Fixed Header */}
+          <div className="sticky top-0 z-30 bg-white ">
+            <AdminHeader />
+          </div>
+
+          {/* Scrollable Content Only */}
+          <main className="flex-1 overflow-y-auto p-6">{children}</main>
         </div>
       </div>
     </AdminGuard>

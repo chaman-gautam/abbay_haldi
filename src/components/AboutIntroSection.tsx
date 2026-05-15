@@ -131,9 +131,14 @@ const AboutIntroSection = () => {
               >
                 <Image
                   src={src}
+                  // alt="Logo"
                   alt={`logo-${i}`}
-                  fill
+                  // fill
                   className="object-contain"
+                  fill
+                  sizes="250px"
+                  // sizes="(max-width: 450px) 100vw, 250px" // responsive sizes example
+                  // className="object-contain"
                 />
               </div>
             ))}
@@ -185,14 +190,14 @@ const AboutIntroSection = () => {
                   <p className="text-xs text-gray-500 mt-1 uppercase tracking-wide">
                     {item.source}
                   </p>
-                  <Link
-                    href={item.link}
-                    target="_blank"
+                  <button
+                    // href={item.link}
+                    // target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#a37f2d] hover:text-[#b6923f] text-xs mt-2 inline-block transition-colors duration-300"
+                    className="text-[#a37f2d] hover:text-[#b6923f] text-sm mt-2 inline-block transition-colors duration-300 cursor-pointer"
                   >
                     Read more →
-                  </Link>
+                  </button>
                 </div>
               </Link>
             </motion.div>

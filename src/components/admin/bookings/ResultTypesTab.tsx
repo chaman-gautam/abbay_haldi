@@ -30,7 +30,7 @@ export default function ResultTypesTab() {
 
   // Load service types
   const loadServiceTypes = async () => {
-    const res = await fetch("/api/admin/service-types");
+    const res = await fetch("/api/admin/dashboard/service-types");
     const data = await res.json();
 
     if (data.success) {
@@ -40,7 +40,7 @@ export default function ResultTypesTab() {
 
   // Load result types
   const loadResultTypes = async () => {
-    const res = await fetch("/api/admin/result-types");
+    const res = await fetch("/api/admin/dashboard/result-types");
     const data = await res.json();
 
     if (data.success) {
@@ -70,7 +70,7 @@ export default function ResultTypesTab() {
     setSaving(true);
 
     try {
-      const res = await fetch("/api/admin/result-types", {
+      const res = await fetch("/api/admin/dashboard/result-types", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -105,7 +105,7 @@ export default function ResultTypesTab() {
 
     if (!confirmed) return;
 
-    const res = await fetch("/api/admin/result-types", {
+    const res = await fetch("/api/admin/dashboard/result-types", {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

@@ -38,7 +38,7 @@ export default function RecommendationsTab() {
 
   // Load service types
   const loadServiceTypes = async () => {
-    const res = await fetch("/api/admin/service-types");
+    const res = await fetch("/api/admin/dashboard/service-types");
     const data = await res.json();
 
     if (data.success) {
@@ -48,7 +48,7 @@ export default function RecommendationsTab() {
 
   // Load all result types
   const loadAllResultTypes = async () => {
-    const res = await fetch("/api/admin/result-types");
+    const res = await fetch("/api/admin/dashboard/result-types");
     const data = await res.json();
 
     if (data.success) {
@@ -58,7 +58,7 @@ export default function RecommendationsTab() {
 
   // Load recommendations
   const loadRecommendations = async () => {
-    const res = await fetch("/api/admin/recommendations");
+    const res = await fetch("/api/admin/dashboard/recommendations");
     const data = await res.json();
 
     if (data.success) {
@@ -112,7 +112,7 @@ export default function RecommendationsTab() {
     setSaving(true);
 
     try {
-      const res = await fetch("/api/admin/recommendations", {
+      const res = await fetch("/api/admin/dashboard/recommendations", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -155,7 +155,7 @@ export default function RecommendationsTab() {
 
     if (!confirmed) return;
 
-    const res = await fetch("/api/admin/recommendations", {
+    const res = await fetch("/api/admin/dashboard/recommendations", {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

@@ -23,7 +23,7 @@ function Navbar({ className }: { className?: string }) {
     <nav
       className={cn(
         "fixed top-0 inset-x-0 z-50 bg-[#ffffffba] shadow-sm text-black backdrop-blur-md font-[var(--font-dream)]",
-        className
+        className,
       )}
     >
       {/* Wrapper */}
@@ -63,6 +63,7 @@ function Navbar({ className }: { className?: string }) {
               alt="Abby Haliti Logo"
               width={60}
               height={60}
+              style={{ width: "100%", height: "auto" }}
               priority
             />
           </Link>
@@ -76,7 +77,7 @@ function Navbar({ className }: { className?: string }) {
                 e.preventDefault();
                 if (!searchValue.trim()) return;
                 window.location.href = `/search?q=${encodeURIComponent(
-                  searchValue
+                  searchValue,
                 )}`;
               }}
             >

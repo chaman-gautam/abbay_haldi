@@ -6,45 +6,46 @@ type ServiceType = {
   id: string;
   name: string;
   is_active: boolean;
+  sort_order: number | null;
 };
 
 export default function ServiceTypesTab() {
-  const [items, setItems] = useState<ServiceType[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [serviceTypes, setServiceTypes] = useState<ServiceType[]>([]);
   const [newName, setNewName] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
 
-  const loadData = async () => {
+  // Load service types
+  const loadServiceTypes = async () => {
     try {
-      setLoading(true);
-
-      const res = await fetch("/api/admin/service-types", {
-        cache: "no-store",
-      });
-
+      const res = await fetch("/api/admin/dashboard/service-types");
       const data = await res.json();
 
       if (data.success) {
-        setItems(data.data || []);
-      } else {
-        setItems([]);
+        setServiceTypes(data.data || []);
       }
     } catch (error) {
       console.error("Error loading service types:", error);
-      setItems([]);
     } finally {
       setLoading(false);
     }
   };
 
   useEffect(() => {
-    loadData();
+    loadServiceTypes();
   }, []);
 
+  // Add new service type
   const handleAdd = async () => {
-    if (!newName.trim()) return;
+    if (!newName.trim()) {
+      alert("Please enter a service name.");
+      return;
+    }
+
+    setSaving(true);
 
     try {
-      const res = await fetch("/api/admin/service-types", {
+      const res = await fetch("/api/admin/dashboard/service-types", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -58,87 +59,109 @@ export default function ServiceTypesTab() {
 
       if (data.success) {
         setNewName("");
-        await loadData();
+        loadServiceTypes();
+      } else {
+        alert(data.error || "Failed to add service type.");
       }
     } catch (error) {
-      console.error("Error adding service type:", error);
+      console.error(error);
+      alert("Something went wrong.");
+    } finally {
+      setSaving(false);
     }
   };
 
+  // Delete service type
   const handleDelete = async (id: string) => {
-    if (!confirm("Delete this service type?")) return;
+    const confirmed = confirm(
+      "Are you sure you want to delete this service type?",
+    );
+
+    if (!confirmed) return;
 
     try {
-      const res = await fetch("/api/admin/service-types", {
+      const res = await fetch("/api/admin/dashboard/service-types", {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          id,
-        }),
+        body: JSON.stringify({ id }),
       });
 
       const data = await res.json();
 
       if (data.success) {
-        await loadData();
+        loadServiceTypes();
+      } else {
+        alert(data.error || "Failed to delete.");
       }
     } catch (error) {
-      console.error("Error deleting service type:", error);
+      console.error(error);
+      alert("Something went wrong.");
     }
   };
 
   return (
     <div className="space-y-6">
-      {/* Header */}
+      {/* Page Header */}
       <div>
-        <h1 className="text-3xl font-bold mb-2">Service Types</h1>
-        <p className="text-gray-600">Manage top-level booking categories.</p>
+        <h1 className="text-3xl font-bold text-gray-900">Service Types</h1>
+        <p className="text-gray-600 mt-1">
+          Manage top-level booking categories.
+        </p>
       </div>
 
       {/* Add Form */}
-      <div className="bg-white border rounded-2xl p-6">
+      <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
         <h2 className="text-xl font-semibold mb-4">Add New Service Type</h2>
 
-        <div className="flex gap-4">
+        <div className="flex flex-col md:flex-row gap-4">
           <input
             type="text"
             placeholder="e.g. Hair Color"
             value={newName}
             onChange={(e) => setNewName(e.target.value)}
-            className="flex-1 border px-4 py-3 rounded-lg"
+            className="flex-1 border border-gray-300 px-4 py-3 rounded-lg"
           />
 
           <button
             onClick={handleAdd}
-            className="px-6 py-3 bg-[#b38b4d] text-white rounded-lg"
+            disabled={saving}
+            className="px-6 py-3 bg-[#b38b4d] text-white rounded-lg hover:opacity-90 disabled:opacity-50"
           >
-            Add Service
+            {saving ? "Saving..." : "Add Service"}
           </button>
         </div>
       </div>
 
-      {/* Existing Items */}
-      <div className="bg-white border rounded-2xl p-6">
+      {/* Service List */}
+      <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
         <h2 className="text-xl font-semibold mb-6">Existing Service Types</h2>
 
         {loading ? (
-          <p>Loading...</p>
-        ) : items.length === 0 ? (
-          <p>No service types found.</p>
+          <p className="text-gray-500">Loading...</p>
+        ) : serviceTypes.length === 0 ? (
+          <p className="text-gray-500">No service types found.</p>
         ) : (
           <div className="space-y-4">
-            {items.map((item) => (
+            {serviceTypes.map((service) => (
               <div
-                key={item.id}
-                className="flex justify-between items-center border rounded-xl p-4"
+                key={service.id}
+                className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 border border-gray-200 rounded-xl p-4"
               >
-                <span className="font-medium">{item.name}</span>
+                <div>
+                  <h3 className="font-semibold text-gray-900">
+                    {service.name}
+                  </h3>
+
+                  <p className="text-sm text-gray-500 mt-1">
+                    Status: {service.is_active ? "Active" : "Inactive"}
+                  </p>
+                </div>
 
                 <button
-                  onClick={() => handleDelete(item.id)}
-                  className="px-4 py-2 bg-red-500 text-white rounded-lg"
+                  onClick={() => handleDelete(service.id)}
+                  className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600"
                 >
                   Delete
                 </button>

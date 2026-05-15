@@ -3,35 +3,131 @@ import { createClient } from "@supabase/supabase-js";
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!, // secure server key
+  process.env.SUPABASE_SERVICE_ROLE_KEY!,
 );
+
+/* ================= DEFAULT FALLBACK DATA ================= */
+const DEFAULT_CONTACT_SETTINGS = {
+  business_name: "Abby Haliti Color Studio",
+  phone: "+1 (555) 123-4567",
+  email: "info@abbyhaliti.com",
+  address: "123 Main Street, New York, NY",
+  working_hours: "Mon - Sat: 9:00 AM - 7:00 PM",
+  instagram_url: "https://instagram.com/abbyhaliti",
+  facebook_url: "https://facebook.com/abbyhaliti",
+  tiktok_url: "https://tiktok.com/@abbyhaliti",
+  youtube_url: "https://youtube.com/@abbyhaliti",
+  google_maps_url: "https://maps.google.com",
+  contact_heading: "Get in Touch",
+  contact_subheading:
+    "Have questions or want to book a consultation? Contact us today.",
+};
 
 /* ================= GET ================= */
 export async function GET() {
-  const { data, error } = await supabase
-    .from("contact_settings")
-    .select("*")
-    .limit(1)
-    .maybeSingle();
+  try {
+    const { data, error } = await supabase
+      .from("contact_settings")
+      .select("*")
+      .limit(1)
+      .maybeSingle();
 
-  //   console.log("Supabase Error:", error);
-  //   console.log("Supabase Data:", data);
+    // If database query fails, return fallback data
+    if (error) {
+      console.error("Contact Settings API Error:", error);
 
-  if (error) return NextResponse.json({ error }, { status: 500 });
+      return NextResponse.json({
+        success: true,
+        isFallback: true,
+        data: DEFAULT_CONTACT_SETTINGS,
+      });
+    }
 
-  return NextResponse.json(data);
+    // If no row exists, return fallback data
+    if (!data) {
+      return NextResponse.json({
+        success: true,
+        isFallback: true,
+        data: DEFAULT_CONTACT_SETTINGS,
+      });
+    }
+
+    // Merge database data with defaults
+    // Any missing fields are automatically filled
+    const mergedData = {
+      ...DEFAULT_CONTACT_SETTINGS,
+      ...data,
+    };
+
+    return NextResponse.json({
+      success: true,
+      isFallback: false,
+      data: mergedData,
+    });
+  } catch (error) {
+    console.error("Unexpected Contact Settings Error:", error);
+
+    return NextResponse.json({
+      success: true,
+      isFallback: true,
+      data: DEFAULT_CONTACT_SETTINGS,
+    });
+  }
 }
 
 /* ================= UPDATE ================= */
 export async function PUT(req: Request) {
-  const body = await req.json();
+  try {
+    const body = await req.json();
 
-  const { error } = await supabase
-    .from("contact_settings")
-    .update(body)
-    .neq("id", "00000000-0000-0000-0000-000000000000"); // update first row
+    // Check if a row already exists
+    const { data: existing } = await supabase
+      .from("contact_settings")
+      .select("id")
+      .limit(1)
+      .maybeSingle();
 
-  if (error) return NextResponse.json({ error }, { status: 500 });
+    let result;
 
-  return NextResponse.json({ success: true });
+    if (existing?.id) {
+      // Update existing row
+      result = await supabase
+        .from("contact_settings")
+        .update(body)
+        .eq("id", existing.id);
+    } else {
+      // Insert new row if table is empty
+      result = await supabase.from("contact_settings").insert([
+        {
+          ...DEFAULT_CONTACT_SETTINGS,
+          ...body,
+        },
+      ]);
+    }
+
+    if (result.error) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: result.error.message,
+        },
+        { status: 500 },
+      );
+    }
+
+    return NextResponse.json({
+      success: true,
+      message: "Contact settings saved successfully.",
+    });
+  } catch (error) {
+    console.error("Contact Settings Update Error:", error);
+
+    return NextResponse.json(
+      {
+        success: false,
+        error: error instanceof Error ? error.message : "Unknown server error",
+      },
+      { status: 500 },
+    );
+  }
 }

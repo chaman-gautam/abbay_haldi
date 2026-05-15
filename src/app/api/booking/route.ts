@@ -18,6 +18,7 @@ export async function POST(req: Request) {
         service_type: data.serviceType,
         result_type: data.resultType,
         recommended_service: data.recommendedService,
+        appointment_date: data.appointmentDate,
         time_slot: data.timeSlot,
         name: data.name,
         email: data.email,
