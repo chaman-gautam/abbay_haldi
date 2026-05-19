@@ -24,7 +24,8 @@ export default function AppointmentsTab() {
   // Filters
   const [searchTerm, setSearchTerm] = useState("");
   const [statusFilter, setStatusFilter] = useState("all");
-
+  // const [serviceFilter, setServiceFilter] = useState("all");
+  const [sortOrder, setSortOrder] = useState("newest");
   const loadBookings = async () => {
     try {
       const res = await fetch("/api/admin/dashboard/bookings");
@@ -45,29 +46,82 @@ export default function AppointmentsTab() {
   }, []);
 
   // Filtered bookings
+  // const filteredBookings = useMemo(() => {
+  //   return bookings.filter((booking) => {
+  //     const query = searchTerm.toLowerCase().trim();
+
+  //     const matchesSearch =
+  //       !query ||
+  //       (booking.name || "").toLowerCase().includes(query) ||
+  //       (booking.email || "").toLowerCase().includes(query) ||
+  //       (booking.phone || "").toLowerCase().includes(query) ||
+  //       (booking.service_type || "").toLowerCase().includes(query) ||
+  //       (booking.result_type || "").toLowerCase().includes(query) ||
+  //       (booking.recommended_service || "").toLowerCase().includes(query) ||
+  //       (booking.time_slot || "").toLowerCase().includes(query) ||
+  //       (booking.appointment_date || "").toLowerCase().includes(query);
+
+  //     const currentStatus = (booking.status || "pending").toLowerCase();
+
+  //     const matchesStatus =
+  //       statusFilter === "all" || currentStatus === statusFilter.toLowerCase();
+
+  //     return matchesSearch && matchesStatus;
+  //   });
+  // }, [bookings, searchTerm, statusFilter]);
+
   const filteredBookings = useMemo(() => {
-    return bookings.filter((booking) => {
-      const query = searchTerm.toLowerCase().trim();
+    return bookings
+      .filter((booking) => {
+        const query = searchTerm.toLowerCase().trim();
 
-      const matchesSearch =
-        !query ||
-        (booking.name || "").toLowerCase().includes(query) ||
-        (booking.email || "").toLowerCase().includes(query) ||
-        (booking.phone || "").toLowerCase().includes(query) ||
-        (booking.service_type || "").toLowerCase().includes(query) ||
-        (booking.result_type || "").toLowerCase().includes(query) ||
-        (booking.recommended_service || "").toLowerCase().includes(query) ||
-        (booking.time_slot || "").toLowerCase().includes(query) ||
-        (booking.appointment_date || "").toLowerCase().includes(query);
+        const matchesSearch =
+          !query ||
+          (booking.name || "").toLowerCase().includes(query) ||
+          (booking.email || "").toLowerCase().includes(query) ||
+          (booking.phone || "").toLowerCase().includes(query) ||
+          (booking.service_type || "").toLowerCase().includes(query) ||
+          (booking.result_type || "").toLowerCase().includes(query) ||
+          (booking.recommended_service || "").toLowerCase().includes(query) ||
+          (booking.time_slot || "").toLowerCase().includes(query) ||
+          (booking.appointment_date || "").toLowerCase().includes(query);
 
-      const currentStatus = (booking.status || "pending").toLowerCase();
+        const currentStatus = (booking.status || "pending").toLowerCase();
 
-      const matchesStatus =
-        statusFilter === "all" || currentStatus === statusFilter.toLowerCase();
+        const matchesStatus =
+          statusFilter === "all" ||
+          currentStatus === statusFilter.toLowerCase();
 
-      return matchesSearch && matchesStatus;
-    });
-  }, [bookings, searchTerm, statusFilter]);
+        // const matchesService =
+        //   serviceFilter === "all" ||
+        //   (booking.service_type || "").toLowerCase() ===
+        //     serviceFilter.toLowerCase();
+
+        return matchesSearch && matchesStatus;
+      })
+      .sort((a, b) => {
+        switch (sortOrder) {
+          case "oldest":
+            return (
+              new Date(a.created_at).getTime() -
+              new Date(b.created_at).getTime()
+            );
+
+          case "name-asc":
+            return (a.name || "").localeCompare(b.name || "");
+
+          case "name-desc":
+            return (b.name || "").localeCompare(a.name || "");
+
+          case "newest":
+          default:
+            return (
+              new Date(b.created_at).getTime() -
+              new Date(a.created_at).getTime()
+            );
+        }
+      });
+  }, [bookings, searchTerm, statusFilter, sortOrder]);
 
   // Status badge colors
   const getStatusClasses = (status: string) => {
@@ -96,8 +150,41 @@ export default function AppointmentsTab() {
       </div>
 
       {/* Filters */}
+      {/* <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4"> */}
+      {/* Search */}
+      {/* <input
+            type="text"
+            placeholder="Search by name, email, phone, or service..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#b38b4d]"
+          /> */}
+
+      {/* Status Filter */}
+      {/* <select
+            value={statusFilter}
+            onChange={(e) => setStatusFilter(e.target.value)}
+            className="w-full border border-gray-300 rounded-lg  py-3 focus:outline-none focus:ring-2 focus:ring-[#b38b4d]"
+          >
+            <option value="all">All Statuses</option>
+            <option value="pending">Pending</option>
+            <option value="confirmed">Confirmed</option>
+            <option value="completed">Completed</option>
+            <option value="cancelled">Cancelled</option>
+          </select> */}
+
+      {/* Count */}
+      {/* <div className="flex items-center text-sm text-gray-600 px-2">
+            Showing {filteredBookings.length} of {bookings.length} bookings
+          </div> */}
+      {/* </div> */}
+      {/* </div> */}
+
+      {/* Filters */}
       <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {/* Change md:grid-cols-3 to md:grid-cols-5 */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           {/* Search */}
           <input
             type="text"
@@ -118,6 +205,30 @@ export default function AppointmentsTab() {
             <option value="confirmed">Confirmed</option>
             <option value="completed">Completed</option>
             <option value="cancelled">Cancelled</option>
+          </select>
+
+          {/* Service Filter */}
+          {/* <select
+            value={serviceFilter}
+            onChange={(e) => setServiceFilter(e.target.value)}
+            className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#b38b4d]"
+          >
+            <option value="all">All Services</option>
+            <option value="Hair Color">Hair Color</option>
+            <option value="Haircut">Haircut</option>
+            <option value="Styling">Styling</option>
+          </select> */}
+
+          {/* Sort Filter */}
+          <select
+            value={sortOrder}
+            onChange={(e) => setSortOrder(e.target.value)}
+            className="w-full border border-gray-300 rounded-lg  py-3 focus:outline-none focus:ring-2 focus:ring-[#b38b4d]"
+          >
+            <option value="newest">Newest First</option>
+            <option value="oldest">Oldest First</option>
+            <option value="name-asc">Name A–Z</option>
+            <option value="name-desc">Name Z–A</option>
           </select>
 
           {/* Count */}
@@ -200,13 +311,52 @@ export default function AppointmentsTab() {
 
                     <p>
                       <strong>Status:</strong>{" "}
-                      <span
-                        className={`inline-block px-2 py-1 rounded text-xs font-semibold ${getStatusClasses(
+                      <select
+                        value={booking.status || "pending"}
+                        onChange={async (e) => {
+                          const newStatus = e.target.value;
+
+                          try {
+                            const res = await fetch(
+                              `/api/admin/dashboard/${booking.id}/status`,
+                              {
+                                method: "PUT",
+                                headers: {
+                                  "Content-Type": "application/json",
+                                },
+                                body: JSON.stringify({
+                                  status: newStatus,
+                                }),
+                              },
+                            );
+
+                            const data = await res.json();
+
+                            if (data.success) {
+                              setBookings((prev) =>
+                                prev.map((item) =>
+                                  item.id === booking.id
+                                    ? { ...item, status: newStatus }
+                                    : item,
+                                ),
+                              );
+                            } else {
+                              alert("Failed to update status.");
+                            }
+                          } catch (error) {
+                            console.error(error);
+                            alert("Error updating status.");
+                          }
+                        }}
+                        className={` py-2 rounded-lg text-xs font-semibold border ${getStatusClasses(
                           booking.status,
                         )}`}
                       >
-                        {booking.status || "Pending"}
-                      </span>
+                        <option value="pending">Pending</option>
+                        <option value="confirmed">Confirmed</option>
+                        <option value="completed">Completed</option>
+                        <option value="cancelled">Cancelled</option>
+                      </select>
                     </p>
                   </div>
                 </div>

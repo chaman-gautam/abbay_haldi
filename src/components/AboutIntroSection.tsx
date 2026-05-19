@@ -74,7 +74,7 @@ const AboutIntroSection = () => {
               and has led masterclasses across Latin America and the Middle
               East.
             </p>
-            <div className="w-full break-keep leading-relaxed flex justify-center items-center ">
+            <div className="w-full break-keep leading-relaxed flex justify-center items-center adding-one-more-class-just-for-version-controll">
               <Link
                 href="https://www.phorest.com/salon/abbyhaliticolorstudio"
                 className="inline-block px-16 py-3 bg-[#b38b4d] text-white uppercase text-sm tracking-wide hover:bg-[#a07a3f] transition-colors text-center"

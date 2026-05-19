@@ -143,8 +143,8 @@ export default function BookingPage() {
               key={index}
               className={`max-w-[80%] px-4 py-3 rounded-2xl text-sm leading-relaxed ${
                 msg.type === "bot"
-                  ? "bg-white border border-gray-200 text-gray-800"
-                  : "bg-[#b38b4d] text-white ml-auto"
+                  ? "bg-white border border-gray-200 text-black"
+                  : "bg-[#b38b4d] text-black ml-auto"
               }`}
             >
               {msg.text}
@@ -194,7 +194,7 @@ export default function BookingPage() {
                   );
                   setStep(3);
                 }}
-                className="w-full border border-gray-300 py-3 rounded-lg hover:bg-gray-50"
+                className="w-full border border-gray-300 py-3 rounded-lg hover:bg-gray-50 text-black"
               >
                 {option}
               </button>
@@ -214,7 +214,7 @@ export default function BookingPage() {
                   addUserMessage(option);
                   await handleRecommendation(option);
                 }}
-                className="w-full border border-gray-300 py-3 rounded-lg hover:bg-gray-50"
+                className="w-full border border-gray-300 py-3 rounded-lg hover:bg-gray-50 text-black"
               >
                 {option}
               </button>
@@ -235,7 +235,7 @@ export default function BookingPage() {
                   await addBotMessage("Please enter your details.");
                   setStep(5);
                 }}
-                className="w-full border border-gray-300 py-3 rounded-lg hover:bg-gray-50"
+                className="w-full border border-gray-300 py-3 rounded-lg hover:bg-gray-50 text-black"
               >
                 {slot}
               </button>
@@ -254,7 +254,7 @@ export default function BookingPage() {
                     name: e.target.value,
                   }))
                 }
-                className="w-full border border-gray-300 p-3 rounded-lg"
+                className="w-full border border-gray-300 p-3 rounded-lg text-black"
               />
 
               <input
@@ -267,7 +267,7 @@ export default function BookingPage() {
                     email: e.target.value,
                   }))
                 }
-                className="w-full border border-gray-300 p-3 rounded-lg"
+                className="w-full border border-gray-300 p-3 rounded-lg text-black"
               />
 
               <input
@@ -280,7 +280,7 @@ export default function BookingPage() {
                     phone: e.target.value,
                   }))
                 }
-                className="w-full border border-gray-300 p-3 rounded-lg"
+                className="w-full border border-gray-300 p-3 rounded-lg text-black"
               />
 
               <button
@@ -321,7 +321,7 @@ export default function BookingPage() {
                   addUserMessage(option === "Yes" ? "Add Treatment" : "Skip");
                   setStep(7);
                 }}
-                className="w-full border border-gray-300 py-3 rounded-lg hover:bg-gray-50"
+                className="w-full border border-gray-300 py-3 rounded-lg hover:bg-gray-50 text-black"
               >
                 {option === "Yes" ? "Add Treatment" : "Skip"}
               </button>
@@ -330,7 +330,7 @@ export default function BookingPage() {
           {/* STEP 7 */}
           {step === 7 && (
             <div className="space-y-3 text-sm">
-              <div className="border border-gray-200 bg-gray-50 rounded-lg p-4 space-y-1">
+              <div className="border border-gray-200 bg-gray-50 rounded-lg p-4 space-y-1 text-black">
                 <p>
                   <strong>Service:</strong> {bookingData.recommendedService}
                 </p>
@@ -354,7 +354,7 @@ export default function BookingPage() {
               <button
                 onClick={handleBookingSubmit}
                 disabled={isSubmitting || isTyping}
-                className="w-full bg-[#b38b4d] text-white py-3 rounded-lg disabled:opacity-50"
+                className="w-full bg-[#b38b4d] text-white py-3 rounded-lg disabled:opacity-50 "
               >
                 {isSubmitting ? "Processing..." : "Confirm Booking"}
               </button>

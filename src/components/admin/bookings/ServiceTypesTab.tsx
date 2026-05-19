@@ -137,6 +137,10 @@ export default function ServiceTypesTab() {
       {/* Service List */}
       <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
         <h2 className="text-xl font-semibold mb-6">Existing Service Types</h2>
+        <h6 className="text-sm font-semibold mb-6 text-red-900">
+          To delete the service first delete the result type and recommandation
+          connected with service .
+        </h6>
 
         {loading ? (
           <p className="text-gray-500">Loading...</p>

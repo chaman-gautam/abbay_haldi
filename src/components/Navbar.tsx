@@ -63,7 +63,7 @@ function Navbar({ className }: { className?: string }) {
               alt="Abby Haliti Logo"
               width={60}
               height={60}
-              style={{ width: "100%", height: "auto" }}
+              style={{ width: "auto", height: "auto" }}
               priority
             />
           </Link>
@@ -93,7 +93,7 @@ function Navbar({ className }: { className?: string }) {
 
           <Link
             href="https://www.phorest.com/salon/abbyhaliticolorstudio"
-            className="bg-[#a37f2d] text-white text-sm font-medium px-5 py-2 rounded-sm hover:bg-[#a07a3f] transition-colors font-[var(--font-dream)]"
+            className="bg-[#a37f2d] text-white text-sm  px-5 py-2 rounded-sm hover:bg-[#a07a3f] transition-colors font-[var(--font-dream)]"
           >
             Book Now
           </Link>

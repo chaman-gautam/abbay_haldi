@@ -172,6 +172,10 @@ export default function ResultTypesTab() {
       {/* Result Types List */}
       <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
         <h2 className="text-xl font-semibold mb-6">Existing Result Types</h2>
+        <h6 className="text-sm font-semibold mb-6 text-red-900">
+          To delete the ' Result types ' first delete the recommandation
+          connected with Result .
+        </h6>
 
         {loading ? (
           <p className="text-gray-500">Loading...</p>
