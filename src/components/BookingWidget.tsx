@@ -210,11 +210,7 @@ export default function BookingWidget() {
   const [serviceTypes, setServiceTypes] = useState<any[]>([]);
   const [resultTypes, setResultTypes] = useState<any[]>([]);
   useEffect(() => {
-    const fallbackServices = [
-      { id: "fallback-1", name: "Hair Color" },
-      { id: "fallback-2", name: "Haircut" },
-      { id: "fallback-3", name: "Styling" },
-    ];
+    const fallbackServices = [];
 
     const fetchServiceTypes = async () => {
       try {
@@ -227,14 +223,26 @@ export default function BookingWidget() {
           console.warn(
             "No service types returned from database. Using fallback data.",
           );
-          setServiceTypes(fallbackServices);
+          {
+            serviceTypes.length === 0 && (
+              <div className="text-sm text-gray-500">
+                Booking services are temporarily unavailable.
+              </div>
+            );
+          }
         }
       } catch (error) {
         console.error(
           "Failed to load service types. Using fallback data.",
           error,
         );
-        setServiceTypes(fallbackServices);
+        {
+          serviceTypes.length === 0 && (
+            <div className="text-sm text-gray-500">
+              Booking services are temporarily unavailable.
+            </div>
+          );
+        }
       }
     };
 
@@ -560,11 +568,13 @@ export default function BookingWidget() {
 
                     // Fallback recommendation
                     if (!recommendation) {
-                      recommendation = {
-                        recommended_service: "Full Balayage",
-                        duration_minutes: 180,
-                        price: 450,
-                      };
+                      await addBotMessage(
+                        "We couldn't generate a recommendation right now. Please try again shortly.",
+                        1200,
+                      );
+
+                      setIsLoadingOptions(false);
+                      return;
                     }
 
                     setBookingData((prev) => ({
@@ -582,14 +592,18 @@ export default function BookingWidget() {
                       `I recommend ${recommendation.recommended_service} ✨`,
                       2500,
                     );
-                    await addBotMessage(
-                      `Estimated time: ${recommendation.duration_minutes} minutes`,
-                      1000,
-                    );
-                    await addBotMessage(
-                      `Approx price: $${recommendation.price}`,
-                      1000,
-                    );
+                    if (recommendation.duration_minutes) {
+                      await addBotMessage(
+                        `Estimated time: ${recommendation.duration_minutes} minutes`,
+                        1000,
+                      );
+                    }
+                    if (recommendation.price) {
+                      await addBotMessage(
+                        `Approx price: $${recommendation.price}`,
+                        1000,
+                      );
+                    }
                     await addBotMessage(
                       "Let's find the perfect appointment time.",
                       1000,
@@ -648,23 +662,23 @@ export default function BookingWidget() {
                   const selectedDate = e.target.value;
 
                   // Fallback slots
-                  const fallbackSlots = [
-                    {
-                      id: "fallback-1",
-                      time_slot: "10:00 AM",
-                      remaining: 3,
-                    },
-                    {
-                      id: "fallback-2",
-                      time_slot: "1:00 PM",
-                      remaining: 2,
-                    },
-                    {
-                      id: "fallback-3",
-                      time_slot: "4:00 PM",
-                      remaining: 4,
-                    },
-                  ];
+                  // const fallbackSlots = [
+                  //   {
+                  //     id: "fallback-1",
+                  //     time_slot: "10:00 AM",
+                  //     remaining: 3,
+                  //   },
+                  //   {
+                  //     id: "fallback-2",
+                  //     time_slot: "1:00 PM",
+                  //     remaining: 2,
+                  //   },
+                  //   {
+                  //     id: "fallback-3",
+                  //     time_slot: "4:00 PM",
+                  //     remaining: 4,
+                  //   },
+                  // ];
 
                   // Save selected date and reset selected time slot
                   setBookingData((prev) => ({
@@ -693,13 +707,13 @@ export default function BookingWidget() {
                       setAvailableSlots(json.data);
                     } else {
                       // Use fallback if no data returned
-                      setAvailableSlots(fallbackSlots);
+                      setAvailableSlots([]);
                     }
                   } catch (error) {
                     console.error("Failed to load available slots:", error);
 
                     // Use fallback if API fails
-                    setAvailableSlots(fallbackSlots);
+                    setAvailableSlots([]);
                   }
                 }}
                 className="w-full border border-gray-300 p-3 rounded-lg"
