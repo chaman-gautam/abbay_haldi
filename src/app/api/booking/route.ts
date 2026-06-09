@@ -196,7 +196,7 @@ export async function POST(req: Request) {
       /* Email to owner */
       await transporter.sendMail({
         from: `"Booking" <${process.env.SMTP_USER}>`,
-        to: process.env.OWNER_EMAIL || process.env.SMTP_USER,
+        to: process.env.SMTP_USER,
         replyTo: data.email,
         subject: "New Booking Received",
         html: `
